@@ -22,7 +22,7 @@
 			
 			<div class="span9">
 				<div>
-					<h1>Admin HOME~~~</h1>
+					<h1>Admin HOME~~hhhhhhhh~</h1>
 					<p>
 						<c:forEach var="info" items="${info }">
 							${info.seq } ${info.name } ${info.age } ${serverTime }<br>
