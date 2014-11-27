@@ -4,8 +4,7 @@ public class AdminInfo {
 		private String seq;
 	private String name;
 	private String age;
-		
-	public String getSeq() {		return seq;	}	public void setSeq(String seq) {		this.seq = seq;	}
+		public String getSeq() {		return seq;	}	public void setSeq(String seq) {		this.seq = seq;	}
 	public String getName() {
 		return name;
 	}
