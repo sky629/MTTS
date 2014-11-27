@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mju.mtts.dao.admin.AdminInfoDao">
+
+	
+	<select id="selectAll" resultType="adminInfo">
+		SELECT
+			 * 
+		FROM	admin.admin
+		<if test="seq != null">
+			WHERE seq = #{seq}
+		</if>
+	</select>
+	
+</mapper>
