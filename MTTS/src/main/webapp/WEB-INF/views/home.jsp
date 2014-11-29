@@ -6,9 +6,6 @@
 <head>
 <meta charset="utf-8">
 <title>Movie Ticket Total System</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
 
 <link href="./static/css/bootstrap.css" rel="stylesheet">
 <link href="./static/css/bootstrap-responsive.css" rel="stylesheet">
