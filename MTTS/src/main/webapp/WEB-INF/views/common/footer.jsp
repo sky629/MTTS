@@ -3,5 +3,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <hr>
 <footer>
-	<p>&copy; Mju 2014</p>
+	<p>&copy; Mju 2014 Database Design Team.6</p>
 </footer>

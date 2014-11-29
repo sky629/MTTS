@@ -37,6 +37,6 @@
 </nav>
 <div class="well well-sm">
 <div class="page-header" align="center">
-  <h1>Movie Tiket Total System</h1>
+  <h1>Movie Ticket Total System</h1>
 </div>
 </div>

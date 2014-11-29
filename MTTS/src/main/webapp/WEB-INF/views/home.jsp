@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>Home</title>
+<title>Movie Ticket Total System</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -25,9 +25,13 @@
 				<c:forEach var="info" items="${info }">
 				<div class="col-sm-6 col-md-4" style="padding:10px;">
 			    	<div class="thumbnail">
-			      	<img src="./static/images/iu.jpg" alt="..">
+			      	<img src="./static/images/iu.jpg" alt="영화 포스터">
 			      	<div class="caption">
-			        	<h3>영화 제목(${info.seq })</h3>
+				      	<div class="list-group">
+						 	<a href="#" class="list-group-item">
+		   						<h3>영화 제목(${info.seq })</h3>
+							</a>
+						</div>
 				        <p>내용1(${info.name })</p>
 				        <p>내용2(${info.age })</p>
 				        <p><a href="#" class="btn btn-primary">예매 하기</a> <a href="#" class="btn btn-default">예고편 보기</a></p>
