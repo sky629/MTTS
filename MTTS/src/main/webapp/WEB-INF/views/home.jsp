@@ -18,6 +18,13 @@
 			<jsp:include page="./common/submenu.jsp"></jsp:include>
 			
 			<div class="span9">
+			<nav class="navbar navbar-default" role="navigation">
+			<ul class="nav nav-tabs navbar-right">
+    			<li><a href="#">예매 순</a></li>
+    			<li><a href="#">개봉 순</a></li>
+    			<li><a href="#">평점 순</a></li>
+    		</ul>
+    		</nav>
 			<div class="row">
 				<c:forEach var="info" items="${info }">
 				<div class="col-sm-6 col-md-4" style="padding:10px;">
