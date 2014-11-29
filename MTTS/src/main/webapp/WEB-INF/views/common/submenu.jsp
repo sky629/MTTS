@@ -4,9 +4,14 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <div class="span2">
-		<form class="form-horizontal" role="form">
-  <div class="form-group">
-    <label for="inputEmail1" class="col-lg-3 control-label">&nbspEmail</label>
+	
+	<form class="form-horizontal" role="form">
+	<div class="form-group">
+	&nbsp&nbsp&nbsp&nbsp<button type="button" class="btn btn-default btn-xs">회원가입</button>
+	<button type="button" class="btn btn-default btn-xs">아이디/비밀번호 찾기</button>
+	</div>
+	<div class="form-group">
+  	<label for="inputEmail1" class="col-lg-3 control-label">&nbspEmail</label>
     <div class="col-lg-8">
       <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
     </div>

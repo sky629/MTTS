@@ -14,7 +14,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#" style="width:230px; font-size:45px;" align="center">MTTS</a>
+    <a class="navbar-brand" href="#" style="width:215px; font-size:32px;" align="center">영화야 놀자!</a>
  </div>
  </h1>
   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -35,8 +35,6 @@
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
-<div class="well well-sm">
-<div class="page-header" align="center">
-  <h1>Movie Ticket Total System</h1>
-</div>
+<div class="well well-sm" align="center">
+  <img alt="" src="./static/images/a.bmp">
 </div>
