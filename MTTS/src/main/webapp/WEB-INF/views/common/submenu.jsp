@@ -3,25 +3,33 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-	<div class="span2">
-		<div class="well sidebar-nav">
-			<ul class="nav nav-list">
-				<c:forEach var="submenu" items="${submenuList}">
-					<!--  <li class="nav-header">Sidebar</li>-->
-					<li class="<c:if test="${submenuId == submenu.menuId}">active</c:if>">
-						<c:choose>
-							<c:when test="${fn:contains(submenu.menuUrl, '?')}">
-								<a href="${submenu.menuUrl}&top=${topmenuId}&sub=${submenu.menuId}">${submenu.menuName}</a>							
-							</c:when>
-							<c:otherwise>
-								<a href="${submenu.menuUrl}?top=${topmenuId}&sub=${submenu.menuId}">${submenu.menuName}</a>	
-							</c:otherwise>
-						</c:choose>
-					</li>
-				</c:forEach>
-			</ul>
-		</div>
-		<c:if test="${qa}">
-		 <h1 align="center" style="color:red;"> QA 어드민</h1>
-		</c:if>
-	</div>
+<div class="span2">
+		<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="inputEmail1" class="col-lg-3 control-label">&nbspEmail</label>
+    <div class="col-lg-8">
+      <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword1" class="col-lg-3 control-label">&nbspPW</label>
+    <div class="col-lg-8">
+      <input type="password" class="form-control" id="inputPassword1" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-8">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-8">
+      <button type="submit" class="btn btn-default">로그인</button>
+    </div>
+  </div>
+</form>
+</div>

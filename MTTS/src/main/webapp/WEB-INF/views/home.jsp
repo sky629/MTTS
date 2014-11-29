@@ -2,7 +2,7 @@
 <%@ page session="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <title>Home</title>
@@ -10,9 +10,9 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<link href="/static/css/bootstrap.css" rel="stylesheet">
-<link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
-<link href="/static/css/manager/body.css" rel="stylesheet">
+<link href="./static/css/bootstrap.css" rel="stylesheet">
+<link href="./static/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="./static/manager/body.css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="./common/header.jsp"></jsp:include>
@@ -22,10 +22,10 @@
 			
 			<div class="span9">
 				<div>
-					<h1>Admin HOME~~hhhhhhhh~</h1>
+					<h1>Admin HOME~~~</h1>
 					<p>
-						<c:forEach var="info" items="${info }">
-							${info.seq } ${info.name } ${info.age } ${serverTime }<br>
+						<c:forEach var="info" items="${info}">
+							${info.seq} ${info.name} ${info.age}<br>
 						</c:forEach>
 					</p>
 				</div>
@@ -34,5 +34,5 @@
 	</div>
 	<jsp:include page="./common/footer.jsp"></jsp:include>
 </body>
-<script type="text/javascript" src="/resources/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="./resources/js/jquery-1.7.2.min.js"></script>
 </html>
