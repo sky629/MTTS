@@ -36,11 +36,11 @@
 		   						<h3>영화 제목(${movieInfo.title})</h3>
 							</a>
 						</div>
-						<p>내용0(${movieInfo.seq})</p>
+						<p>내용0(${movieInfo.movieSeq})</p>
 				        <p>내용1(${movieInfo.playTime})</p>
 				        <p>내용2(${movieInfo.synopsis})</p>
 				        <p>내용3(${movieInfo.produceYear})</p>
-				        <p>내용4(${movieInfo.runDate})</p>
+				        <p>내용4(${movieInfo.openDate})</p>
 				        <p><a href="#" class="btn btn-primary">예매 하기</a> <a href="#" class="btn btn-default">예고편 보기</a></p>
 			      	</div>
 			      	</div>

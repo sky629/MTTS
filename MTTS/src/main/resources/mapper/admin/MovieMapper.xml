@@ -6,11 +6,11 @@
 	<select id="selectAll" resultType="movie">
 		SELECT
 				MOVIE_SEQ as 'movieSeq'
-			,	TITLE
-			,	PLAYTIME
-			,	SYNOPSIS
-			,	PRODUCEYEAR
-			,	RUNDATE
+			,	TITLE as 'title'
+			,	PLAYTIME as 'playTime'
+			,	SYNOPSIS as 'synopsis'
+			,	PRODUCE_YEAR as 'produceYear'
+			,	OPEN_DATE as 'openDate'
 			 
 		FROM	admin.MOVIE
 		<if test="movieSeq != null">

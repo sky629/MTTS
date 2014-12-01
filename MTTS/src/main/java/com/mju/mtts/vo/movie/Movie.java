@@ -6,7 +6,7 @@ public class Movie {
 	private String playTime;
 	private String synopsis;
 	private String produceYear;
-	private String runDate;
+	private String openDate;
 	
 	
 	
@@ -40,11 +40,11 @@ public class Movie {
 	public void setProduceYear(String produceYear) {
 		this.produceYear = produceYear;
 	}
-	public String getRunDate() {
-		return runDate;
+	public String getOpenDate() {
+		return openDate;
 	}
-	public void setRunDate(String runDate) {
-		this.runDate = runDate;
+	public void setOpenDate(String openDate) {
+		this.openDate = openDate;
 	}
 	
 	
