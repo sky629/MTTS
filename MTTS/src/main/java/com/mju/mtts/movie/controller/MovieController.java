@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mju.mtts.movie.service.MovieService;
-import com.mju.mtts.vo.admin.AdminInfo;
+import com.mju.mtts.vo.movie.Movie;
 
 /**
  * Handles requests for the application home page.
@@ -46,7 +46,7 @@ public class MovieController {
 			HttpServletRequest request,
 			HttpServletResponse response,
 			ModelMap mm,
-			@RequestParam(value = "seq", required = false) String seq) {
+			@RequestParam(value = "movieSeq", required = false) String movieSeq) {
 
 		logger.info("MovieHome");
 
@@ -57,7 +57,7 @@ public class MovieController {
 		
 		mm.addAttribute("serverTime", formattedDate );
 		
-		mm.addAttribute("info", movieService.getAdminAll(seq));
+		mm.addAttribute("movieInfo", movieService.getMovieAll(movieSeq));
 		
 		return "movie/home";
 

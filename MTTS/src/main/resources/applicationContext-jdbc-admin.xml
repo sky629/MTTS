@@ -31,7 +31,7 @@
 		</property>
 	</bean>
 	<bean id="sqlMapper" class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-		p:basePackage="com.mju.mtts.dao.admin"
+		p:basePackage="com.mju.mtts.dao.movie"
 		p:sqlSessionFactoryBeanName="sqlSessionFactory" />
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"

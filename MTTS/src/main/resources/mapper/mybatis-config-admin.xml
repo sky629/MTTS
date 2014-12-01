@@ -18,7 +18,7 @@
 		<typeAlias alias="map" type="java.util.Map" />
 
 		<!-- test -->
-		<typeAlias alias="adminInfo" type="com.mju.mtts.vo.admin.AdminInfo" />
+		<typeAlias alias="movie" type="com.mju.mtts.vo.movie.Movie" />
 
 	</typeAliases>
 

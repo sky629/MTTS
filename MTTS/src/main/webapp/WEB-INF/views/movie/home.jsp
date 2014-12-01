@@ -26,18 +26,21 @@
     		</ul>
     		</nav>
 			<div class="row">
-				<c:forEach var="info" items="${info }">
+				<c:forEach var="movieInfo" items="${movieInfo }">
 				<div class="col-sm-6 col-md-4" style="padding:10px;">
 			    	<div class="thumbnail">
 			      	<img src="./static/images/iu.jpg" alt="영화 포스터">
 			      	<div class="caption">
 				      	<div class="list-group">
 						 	<a href="#" class="list-group-item">
-		   						<h3>영화 제목(${info.seq })</h3>
+		   						<h3>영화 제목(${movieInfo.title})</h3>
 							</a>
 						</div>
-				        <p>내용1(${info.name })</p>
-				        <p>내용2(${info.age })</p>
+						<p>내용0(${movieInfo.seq})</p>
+				        <p>내용1(${movieInfo.playTime})</p>
+				        <p>내용2(${movieInfo.synopsis})</p>
+				        <p>내용3(${movieInfo.produceYear})</p>
+				        <p>내용4(${movieInfo.runDate})</p>
 				        <p><a href="#" class="btn btn-primary">예매 하기</a> <a href="#" class="btn btn-default">예고편 보기</a></p>
 			      	</div>
 			      	</div>
