@@ -12,10 +12,10 @@
 <link href="./static/manager/body.css" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="./common/header.jsp"></jsp:include>
+	<jsp:include page="../common/header.jsp"></jsp:include>
 	<div class="container-fluid">
 		<div class="row-fluid">
-			<jsp:include page="./common/submenu.jsp"></jsp:include>
+			<jsp:include page="../common/submenu.jsp"></jsp:include>
 			
 			<div class="span9">
 			<nav class="navbar navbar-default" role="navigation">
@@ -47,7 +47,9 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="./common/footer.jsp"></jsp:include>
+	<jsp:include page="../common/footer.jsp"></jsp:include>
+
 </body>
 <script type="text/javascript" src="./resources/js/jquery-1.7.2.min.js"></script>
+
 </html>

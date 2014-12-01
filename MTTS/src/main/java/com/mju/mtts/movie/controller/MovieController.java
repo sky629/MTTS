@@ -1,4 +1,4 @@
-package com.mju.mtts.main.controller;
+package com.mju.mtts.movie.controller;
 
 import java.io.FileNotFoundException;
 import java.text.DateFormat;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.mju.mtts.main.service.MainService;
+import com.mju.mtts.movie.service.MovieService;
 import com.mju.mtts.vo.admin.AdminInfo;
 
 /**
@@ -32,23 +32,23 @@ import com.mju.mtts.vo.admin.AdminInfo;
 
 
 @Controller
-public class MainController {
+public class MovieController {
 
 	private static final Logger logger = LoggerFactory
-			.getLogger(MainController.class);
+			.getLogger(MovieController.class);
 
 	@Autowired
-	private MainService mainService;
+	private MovieService movieService;
 
 	
 	@RequestMapping("/")
-	public String GbmsList(
+	public String MovieHome(
 			HttpServletRequest request,
 			HttpServletResponse response,
 			ModelMap mm,
 			@RequestParam(value = "seq", required = false) String seq) {
 
-		logger.info("home");
+		logger.info("MovieHome");
 
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
@@ -57,9 +57,9 @@ public class MainController {
 		
 		mm.addAttribute("serverTime", formattedDate );
 		
-		mm.addAttribute("info", mainService.getAdminAll(seq));
+		mm.addAttribute("info", movieService.getAdminAll(seq));
 		
-		return "home";
+		return "movie/home";
 
 	}
 

@@ -1,4 +1,4 @@
-package com.mju.mtts.main.service.Impl;
+package com.mju.mtts.movie.service.Impl;
 
 import java.util.List;
 
@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mju.mtts.dao.admin.AdminInfoDao;
-import com.mju.mtts.main.service.MainService;
+import com.mju.mtts.movie.service.MovieService;
 import com.mju.mtts.vo.admin.AdminInfo;
 
-@Service("MainService")
-public class MainServiceImpl implements MainService {
+@Service("MovieService")
+public class MovieServiceImpl implements MovieService {
 
 	
 	@Autowired
