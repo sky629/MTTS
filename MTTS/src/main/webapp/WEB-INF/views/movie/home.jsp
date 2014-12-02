@@ -20,11 +20,12 @@
 			<div class="span9">
 			<nav class="navbar navbar-default" role="navigation">
 			<ul class="nav nav-tabs navbar-right">
-    			<li><a href="#">예매 순</a></li>
-    			<li><a href="#">개봉 순</a></li>
-    			<li><a href="#">평점 순</a></li>
+    			<li><a href="/?sortCode=reserv">예매 순</a></li>
+    			<li><a href="/?sortCode=open">개봉 순</a></li>
+    			<li><a href="/?sortCode=grade">평점 순</a></li>
     		</ul>
     		</nav>
+
 			<div class="row">
 				<c:forEach var="movieInfo" items="${movieInfo }">
 				<div class="col-sm-6 col-md-4" style="padding:10px;">
@@ -33,14 +34,16 @@
 			      	<div class="caption">
 				      	<div class="list-group">
 						 	<a href="#" class="list-group-item">
-		   						<h3>영화 제목(${movieInfo.title})</h3>
+		   						<h3>${movieInfo.title}</h3>
 							</a>
 						</div>
-						<p>내용0(${movieInfo.movieSeq})</p>
-				        <p>내용1(${movieInfo.playTime})</p>
-				        <p>내용2(${movieInfo.synopsis})</p>
-				        <p>내용3(${movieInfo.produceYear})</p>
-				        <p>내용4(${movieInfo.openDate})</p>
+						<p><div class="span3"><b>평점</div> : </b>${movieInfo.movieSeq}</p>
+				        <p><div class="span3"><b>장르</div> : </b>${movieInfo.synopsis}</p>
+				        <p><div class="span3"><b>상영시간</div> : </b>${movieInfo.playTime}</p>
+				        <p><div class="span3"><b>제작년도</div> : </b>${movieInfo.produceYear}</p>
+				        <p><div class="span3"><b>개봉일</div> : </b>${movieInfo.openDate}</p>
+				        <p><div class="span3"><b>감독</div> : </b>${movieInfo.openDate}</p>
+				        <p><div class="span3"><b>출연진</div> : </b>${movieInfo.openDate}</p>
 				        <p><a href="#" class="btn btn-primary">예매 하기</a> <a href="#" class="btn btn-default">예고편 보기</a></p>
 			      	</div>
 			      	</div>

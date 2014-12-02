@@ -46,17 +46,23 @@ public class MovieController {
 			HttpServletRequest request,
 			HttpServletResponse response,
 			ModelMap mm,
-			@RequestParam(value = "movieSeq", required = false) String movieSeq) {
+			@RequestParam(value = "movieSeq", required = false) String movieSeq,
+			@RequestParam(value = "sortCode", required = false) String sortCode,
+			@RequestParam(value = "searchCode", required = false) String searchCode,
+			@RequestParam(value = "search", required = false) String search) {
 
 		logger.info("MovieHome");
 
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
+		if ("ALL".equals(searchCode)) {
+			searchCode = null;
+		}
 		
-		String formattedDate = dateFormat.format(date);
+		System.out.println(sortCode);
+		System.out.println(searchCode);
+		System.out.println(search);
 		
-		mm.addAttribute("serverTime", formattedDate );
 		
+		mm.addAttribute("sc", searchCode);
 		mm.addAttribute("movieInfo", movieService.getMovieAll(movieSeq));
 		
 		return "movie/home";
