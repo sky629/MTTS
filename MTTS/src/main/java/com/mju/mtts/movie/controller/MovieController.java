@@ -82,7 +82,7 @@ public class MovieController {
 		mm.addAttribute("country",movieService.getCountry(movieSeq));
 		mm.addAttribute("rate", movieService.getRate(movieSeq));
 		mm.addAttribute("genre", movieService.getGenre(movieSeq));
-		return "movie/movie_detail";
+		return "movie/movieDetail";
 
 	}
 
