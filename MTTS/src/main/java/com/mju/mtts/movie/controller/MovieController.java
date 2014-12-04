@@ -68,6 +68,24 @@ public class MovieController {
 		return "movie/home";
 
 	}
+	@RequestMapping("/movie")
+	public String MovieDetail(
+			HttpServletRequest request,
+			HttpServletResponse response,
+			ModelMap mm,
+			@RequestParam(value = "movieSeq", required = false) String movieSeq) {
+
+		logger.info("MovieHome");
+		
+		mm.addAttribute("movieDetail", movieService.getMovieAll(movieSeq).get(0));
+		mm.addAttribute("grade", movieService.getGrade(movieSeq));
+		mm.addAttribute("country",movieService.getCountry(movieSeq));
+		mm.addAttribute("rate", movieService.getRate(movieSeq));
+		mm.addAttribute("genre", movieService.getGenre(movieSeq));
+		return "movie/movie_detail";
+
+	}
+
 
 
 }
