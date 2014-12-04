@@ -24,5 +24,36 @@ public class MovieServiceImpl implements MovieService {
 		return movieDao.selectAll(param);
 	}
 
+	@Override
+	public Movie getMovie(String movieSeq) {
+		Movie movie = new Movie();
+		movie.setMovieSeq(movieSeq);
+		
+		return movieDao.selectAll(movie).get(0);
+	}
 
+	@Override
+	public Double getGrade(String movieSeq) {
+		Double grade;
+		grade = movieDao.getGrade(movieSeq);
+		System.out.println("LOG : "+grade);
+		return grade;
+	}
+
+	@Override
+	public List<String> getGenre(String movieSeq) {
+		// TODO Auto-generated method stub
+		List<String> genre;
+		genre = movieDao.getGenre(movieSeq);
+		return genre;
+	}
+
+	@Override
+	public List<String> getCountry(String movieSeq) {
+		return movieDao.getCountry(movieSeq);
+	}
+	
+	public String getRate(String movieSeq){
+		return movieDao.getRate(movieSeq);
+	}
 }
