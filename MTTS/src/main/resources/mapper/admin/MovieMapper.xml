@@ -18,4 +18,43 @@
 		</if>
 	</select>
 	
+	<select id="getGrade" resultType="Double">
+		SELECT
+				avg(GRADE) as 'grade'
+			
+		FROM	admin.MOVIE_REVIEW
+		WHERE	MOVIE_SEQ = #{movieSeq}
+		GROUP BY	MOVIE_SEQ
+	</select>
+	
+	<select id="getGenre" resultType="String">
+		SELECT 
+				GENRE_NAME as 'genre'
+				
+		FROM	admin.GENRE natural join admin.MOVIEGENRE
+		WHERE	MOVIE_SEQ = #{movieSeq}
+	</select>
+
+	<select id="getCountry" resultType="String">
+
+		SELECT
+				COUNTRY_NAME as 'countryName'
+				
+		FROM	admin.PRODUCE_COMPANY natural join admin.COUNTRY
+		WHERE	PRODUCE_COMPANY_SEQ IN
+				(SELECT
+						PRODUCE_COMPANY_SEQ
+				FROM MOVIE
+				WHERE MOVIE_SEQ = #{movieSeq})
+	</select>
+	
+	<select id="getRate" resultType="String">
+	
+		SELECT
+				RATE as 'rate'
+		
+		FROM	admin.RATE natural join admin.MOVIE
+		WHERE	MOVIE_SEQ = #{movieSeq}
+	
+	</select>
 </mapper>
