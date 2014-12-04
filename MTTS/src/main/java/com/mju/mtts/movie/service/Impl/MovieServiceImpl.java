@@ -1,5 +1,6 @@
 package com.mju.mtts.movie.service.Impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +19,23 @@ public class MovieServiceImpl implements MovieService {
 	private MovieDao movieDao;
 
 	@Override
-	public List<Movie> getMovieAll(String movieSeq) {
+	public List<Movie> getMovieAll(String movieSeq, String sortCode) {
 		Movie param = new Movie();
+		List<Movie> temp =  new ArrayList<Movie>();
+		
 		param.setMovieSeq(movieSeq);
-		return movieDao.selectAll(param);
+		param.setSortCode(sortCode);
+		temp = movieDao.selectAll(param);
+		
+		for(int i=0; i<temp.size(); i++){
+			
+			temp.get(i).setGenre(getGenre(movieDao.selectAll(param).get(i).getMovieSeq())); 
+			temp.get(i).setGrade(getGrade(movieDao.selectAll(param).get(i).getMovieSeq()));
+			temp.get(i).setRate(getRate(movieDao.selectAll(param).get(i).getMovieSeq()));
+			temp.get(i).setCountry(getCountry(movieDao.selectAll(param).get(i).getMovieSeq()));
+		}
+			
+		return temp;
 	}
 
 	@Override

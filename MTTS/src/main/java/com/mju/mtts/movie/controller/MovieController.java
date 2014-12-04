@@ -49,7 +49,7 @@ public class MovieController {
 			@RequestParam(value = "movieSeq", required = false) String movieSeq,
 			@RequestParam(value = "sortCode", required = false) String sortCode,
 			@RequestParam(value = "searchCode", required = false) String searchCode,
-			@RequestParam(value = "search", required = false) String search) {
+			@RequestParam(value = "keyword", required = false) String keyword) {
 
 		logger.info("MovieHome");
 
@@ -59,11 +59,11 @@ public class MovieController {
 		
 		System.out.println(sortCode);
 		System.out.println(searchCode);
-		System.out.println(search);
+		System.out.println(keyword);
 		
 		
-		mm.addAttribute("sc", searchCode);
-		mm.addAttribute("movieInfo", movieService.getMovieAll(movieSeq));
+		
+		mm.addAttribute("movieInfo", movieService.getMovieAll(movieSeq, sortCode));
 		
 		return "movie/home";
 
@@ -77,7 +77,7 @@ public class MovieController {
 
 		logger.info("MovieHome");
 		
-		mm.addAttribute("movieDetail", movieService.getMovieAll(movieSeq).get(0));
+		mm.addAttribute("movieDetail", movieService.getMovieAll(movieSeq, null).get(0));
 		mm.addAttribute("grade", movieService.getGrade(movieSeq));
 		mm.addAttribute("country",movieService.getCountry(movieSeq));
 		mm.addAttribute("rate", movieService.getRate(movieSeq));

@@ -35,7 +35,7 @@
 		</select>
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search" id="search" name="search" style="width:300px">
+        <input type="text" class="form-control" placeholder="Search" id="keyword" name="keyword" style="width:300px">
       </div>
       <button type="submit" class="btn btn-default">검색</button>
   	  </form>
