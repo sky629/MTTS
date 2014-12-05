@@ -19,6 +19,7 @@
 
 		<!-- test -->
 		<typeAlias alias="movie" type="com.mju.mtts.vo.movie.Movie" />
+		<typeAlias alias="showMovie" type="com.mju.mtts.vo.movie.ShowMovie" />
 
 	</typeAliases>
 
