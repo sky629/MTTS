@@ -7,9 +7,10 @@
 <meta charset="utf-8">
 <title>Movie Ticket Total System</title>
 
-<link href="./static/css/bootstrap.css" rel="stylesheet">
-<link href="./static/css/bootstrap-responsive.css" rel="stylesheet">
-<link href="./static/manager/body.css" rel="stylesheet">
+<link href="../static/css/bootstrap.css" rel="stylesheet">
+<link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="../static/manager/body.css" rel="stylesheet">
+<link href="../resources/js/rateit/rateit.css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="../common/header.jsp"></jsp:include>
@@ -37,8 +38,7 @@
 		   						<h3>${movieInfo.title}</h3>
 							</a>
 						</div>
-						<p><div class="span3"><b>영화번호</div> : </b>${movieInfo.movieSeq}</p>
-						<p><div class="span3"><b>평점</div> : </b>${movieInfo.grade}</p>
+						<p><div class="span3"><b>평점</div> : </b><div class="rateit" data-rateit-value=${(movieInfo.grade)/2 } data-rateit-ispreset="true" data-rateit-readonly="true"></div></p>
 				        <p><div class="span3"><b>장르</div> : </b>${movieInfo.genre}</p>
 				        <p><div class="span3"><b>상영시간</div> : </b>${movieInfo.playTime}</p>
 				        <p><div class="span3"><b>제작년도</div> : </b>${movieInfo.produceYear}</p>
@@ -61,6 +61,6 @@
 	<jsp:include page="../common/footer.jsp"></jsp:include>
 
 </body>
-<script type="text/javascript" src="./resources/js/jquery-1.7.2.min.js"></script>
-
+<script type="text/javascript" src="../resources/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../resources/js/rateit/jquery.rateit.min.js"></script>
 </html>
