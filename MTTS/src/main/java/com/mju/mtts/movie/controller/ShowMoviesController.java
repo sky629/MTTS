@@ -17,6 +17,8 @@ public class ShowMoviesController {
 	
 	@Autowired
 	private ShowMovieService showMovieService;
+	
+	@Autowired
 	private TheaterService theaterServie;
 	
 	@RequestMapping("/reserv/reserv.do")
