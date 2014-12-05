@@ -43,5 +43,5 @@
   </div><!-- /.navbar-collapse -->
 </nav>
 <div class="well well-sm" align="center">
-  <img alt="" src="./static/images/main.png">
+  <img alt="" src="../static/images/main.png">
 </div>

@@ -20,7 +20,6 @@
 			<choose>
 				<when test="sortCode == 'grade'">
 					ORDER BY OPEN_DATE DESC
-					
 			    </when>
 			    <when test="sortCode == 'open'">
 			      	ORDER BY OPEN_DATE DESC

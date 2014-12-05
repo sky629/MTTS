@@ -33,7 +33,7 @@
 			      	<img src="./static/images/iu.jpg" alt="영화 포스터">
 			      	<div class="caption">
 				      	<div class="list-group">
-						 	<a href="#" class="list-group-item">
+						 	<a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq}" class="list-group-item">
 		   						<h3>${movieInfo.title}</h3>
 							</a>
 						</div>
