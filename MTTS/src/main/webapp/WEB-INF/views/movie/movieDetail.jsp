@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -39,8 +40,8 @@
 					<nav class="navbar navbar-default" role="navigation">
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav">
-							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=synopis">줄거리</a></li>
-							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=steff">배우/제작진</a></li>
+							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=synopsis">줄거리</a></li>
+							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=staff">배우/제작진</a></li>
 							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=picture">사진</a></li>
 							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=video">동영상</a></li>
 							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=grade">평점/리뷰</a></li>
@@ -52,11 +53,54 @@
 				</div>
 				<div class="row">
 				
-				<span><h1>줄거리</h1></span>
+				<span><h1>
+				<c:choose>
+					<c:when test="${navCode  == 'synopsis'}">
+						줄거리
+					</c:when>
+					<c:when test="${navCode  == 'staff'}">
+						배우/제작진
+					</c:when>
+					<c:when test="${navCode  == 'picture'}">
+						사진
+					</c:when>
+					<c:when test="${navCode  == 'video'}">
+						동영상
+					</c:when>
+					<c:when test="${navCode  == 'grade'}">
+						평점/리뷰
+					</c:when>
+					<c:when test="${navCode  == 'timeTable'}">
+						상영시간표
+					</c:when>
+					<c:when test="${navCode  == 'fameLine'}">
+						명대사
+					</c:when>
+				</c:choose></h1></span>
 				<hr>
-				<span>${synopsis}</span>
-				<span>${grade}</span>
-				<span>${genre}</span>
+				<c:choose>
+					<c:when test="${navCode  == 'synopsis'}">
+						${movieInfo.synopsis }
+					</c:when>
+					<c:when test="${navCode  == 'staff'}">
+						배우/제작진
+					</c:when>
+					<c:when test="${navCode  == 'picture'}">
+						사진
+					</c:when>
+					<c:when test="${navCode  == 'video'}">
+						동영상
+					</c:when>
+					<c:when test="${navCode  == 'grade'}">
+						평점/리뷰
+					</c:when>
+					<c:when test="${navCode  == 'timeTable'}">
+						상영시간표
+					</c:when>
+					<c:when test="${navCode  == 'fameLine'}">
+						명대사
+					</c:when>
+				</c:choose>
 				</div>
 			</div>
 		</div>
