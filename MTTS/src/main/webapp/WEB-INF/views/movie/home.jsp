@@ -38,7 +38,7 @@
 		   						<h3>${movieInfo.title}</h3>
 							</a>
 						</div>
-						<p><div class="span3"><b>평점</div> : </b><div class="rateit" data-rateit-value=${(movieInfo.grade)/2 } data-rateit-ispreset="true" data-rateit-readonly="true"></div></p>
+						<p><div class="span3"><b>평점</div> : </b><div class="rateit" data-rateit-value=${(movieInfo.gradeAvg)/2 } data-rateit-ispreset="true" data-rateit-readonly="true"></div></p>
 				        <p><div class="span3"><b>장르</div> : </b>${movieInfo.genre}</p>
 				        <p><div class="span3"><b>상영시간</div> : </b>${movieInfo.playTime}</p>
 				        <p><div class="span3"><b>개봉일</div> : </b>${movieInfo.openDate}</p>

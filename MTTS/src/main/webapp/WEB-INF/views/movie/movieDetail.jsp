@@ -22,7 +22,7 @@
 						style="min-width: 450px; min-height: 300px;">
 							<p><h1>${movieInfo.title}</h1></p>
 							<hr>
-							<p><div class="span3"><b>평점</b></div> : <div class="rateit" data-rateit-value=${(movieInfo.grade)/2 } data-rateit-ispreset="true" data-rateit-readonly="true"></div></p>
+							<p><div class="span3"><b>평점</b></div> : <div class="rateit" data-rateit-value=${(movieInfo.gradeAvg)/2 } data-rateit-ispreset="true" data-rateit-readonly="true"></div></p>
 							<p><div class="span3"><b>장르</b></div> : ${movieInfo.genre }</p>
 							<p><div class="span3"><b>국가</b></div> : ${movieInfo.country }</p>
 							<p><div class="span3"><b>상영시간</b></div> : ${movieInfo.playTime }</p>

@@ -16,8 +16,22 @@ public class Movie {
 	private String sortCode;
 	private String searchCode;
 	private String keyword;
+	private String gradeAvg;
+	private String reservCount;
 	
 	
+	public String getGradeAvg() {
+		return gradeAvg;
+	}
+	public void setGradeAvg(String gradeAvg) {
+		this.gradeAvg = gradeAvg;
+	}
+	public String getReservCount() {
+		return reservCount;
+	}
+	public void setReservCount(String reservCount) {
+		this.reservCount = reservCount;
+	}
 	public String getSortCode() {
 		return sortCode;
 	}
