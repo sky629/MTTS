@@ -11,5 +11,6 @@
 			 
 		FROM	admin.MOVIE m , admin.SHOWMOVIE s
 		WHERE	m.MOVIE_SEQ = s.MOVIE_SEQ		
+		
 	</select>
 </mapper>

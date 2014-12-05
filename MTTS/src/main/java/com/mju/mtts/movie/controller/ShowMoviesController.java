@@ -22,7 +22,7 @@ public class ShowMoviesController {
 			HttpServletResponse response,
 			ModelMap model){
 		
-		model.addAttribute("showMovies", showMovieService.getShowMovieAll());
+		model.addAttribute("showMovie", showMovieService.getShowMovieAll());
 		
 		return "reserv/index";
 	}
