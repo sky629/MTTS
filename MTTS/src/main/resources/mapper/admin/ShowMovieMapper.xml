@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mju.mtts.dao.movie.MovieDao">
+
+	<select id="showMovie" resultType="showMovie">
+		SELECT
+				MOVIE_SEQ as 'movieSeq'
+			,	THEATER_SEQ as 'theaterSeq'
+			,	SCREEN_SEQ as 'screenSeq'
+			,	TITLE as 'title'
+			 
+		FROM	admin.MOVIE, admin.SHOWMOVIE
+		<if test="movieSeq != null">
+			WHERE admin.MOVIE.MOVIE_SEQ = admin.SHOWMOVIE.MOVIE_SEQ
+		</if>
+		
+	</select>
+</mapper>
