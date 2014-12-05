@@ -5,7 +5,6 @@ public class ShowMovie {
 	private String movieSeq;
 	private String theaterSeq;
 	private String screenSeq;
-	// Movie 와 join 하여 가져올 정보
 	private String title;
 	
 	public String getTitle() {

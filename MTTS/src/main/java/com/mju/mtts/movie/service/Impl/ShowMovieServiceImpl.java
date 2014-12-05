@@ -17,8 +17,7 @@ public class ShowMovieServiceImpl implements ShowMovieService {
 
 	@Override
 	public List<ShowMovie> getShowMovieAll() {
-		// TODO Auto-generated method stub
-		return showMovieDao.showMovie();
+		return showMovieDao.showMovieAll();
 	}
 
 }
