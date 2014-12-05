@@ -41,13 +41,11 @@
 						<p><div class="span3"><b>평점</div> : </b><div class="rateit" data-rateit-value=${(movieInfo.grade)/2 } data-rateit-ispreset="true" data-rateit-readonly="true"></div></p>
 				        <p><div class="span3"><b>장르</div> : </b>${movieInfo.genre}</p>
 				        <p><div class="span3"><b>상영시간</div> : </b>${movieInfo.playTime}</p>
-				        <p><div class="span3"><b>제작년도</div> : </b>${movieInfo.produceYear}</p>
 				        <p><div class="span3"><b>개봉일</div> : </b>${movieInfo.openDate}</p>
 				        <p><div class="span3"><b>감독</div> : </b>${movieInfo.openDate}</p>
 				        <p><div class="span3"><b>출연진</div> : </b>${movieInfo.openDate}</p>
 				        <p><div class="span3"><b>등급</div> : </b>${movieInfo.rate}</p>
 				        <p><div class="span3"><b>국가</div> : </b>${movieInfo.country}</p>
-				        <p><div class="span3"><b>줄거리</div> : </b>${movieInfo.synopsis}</p>
 				        
 				        <p><a href="#" class="btn btn-primary">예매 하기</a> <a href="#" class="btn btn-default">예고편 보기</a></p>
 			      	</div>

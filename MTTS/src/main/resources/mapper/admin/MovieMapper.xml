@@ -5,27 +5,27 @@
 	
 	<select id="selectAll" resultType="movie">
 		SELECT
-				MOVIE_SEQ as 'movieSeq'
-			,	TITLE as 'title'
-			,	PLAYTIME as 'playTime'
-			,	SYNOPSIS as 'synopsis'
-			,	PRODUCE_YEAR as 'produceYear'
-			,	OPEN_DATE as 'openDate'
+				m.MOVIE_SEQ as 'movieSeq'
+			,	m.TITLE as 'title'
+			,	m.PLAYTIME as 'playTime'
+			,	m.SYNOPSIS as 'synopsis'
+			,	m.PRODUCE_YEAR as 'produceYear'
+			,	m.OPEN_DATE as 'openDate'
 			 
-		FROM	admin.MOVIE
+		FROM	admin.MOVIE m JOIN admin.SHOWMOVIE
 		<if test="movieSeq != null">
-			WHERE MOVIE_SEQ = #{movieSeq}
+			WHERE m.MOVIE_SEQ = #{movieSeq}
 		</if>
 		<if test="sortCode != null">
 			<choose>
 				<when test="sortCode == 'grade'">
-					ORDER BY OPEN_DATE DESC
+					ORDER BY m.OPEN_DATE DESC
 			    </when>
 			    <when test="sortCode == 'open'">
-			      	ORDER BY OPEN_DATE DESC
+			      	ORDER BY m.OPEN_DATE DESC
 			    </when>
 			    <when test="sortCode == 'reserv'">
-			    	ORDER BY OPEN_DATE DESC
+			    	ORDER BY m.OPEN_DATE DESC
 			    </when>
 		 	</choose>
 		</if>
