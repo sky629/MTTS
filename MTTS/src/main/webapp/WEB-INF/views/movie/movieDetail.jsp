@@ -39,18 +39,19 @@
 					<nav class="navbar navbar-default" role="navigation">
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav">
-							<li><a href="/movie/movieDetail.do?navCode=synopis">줄거리</a></li>
-							<li><a href="/movie/movieDetail.do?navCode=steff">배우/제작진</a></li>
-							<li><a href="/movie/movieDetail.do?navCode=picture">사진</a></li>
-							<li><a href="/movie/movieDetail.do?navCode=video">동영상</a></li>
-							<li><a href="/movie/movieDetail.do?navCode=grade">평점/리뷰</a></li>
-							<li><a href="/movie/movieDetail.do?navCode=timeTable">상영시간표</a></li>
-							<li><a href="/movie/movieDetail.do?navCode=fameLine">명대사</a></li>
+							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=synopis">줄거리</a></li>
+							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=steff">배우/제작진</a></li>
+							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=picture">사진</a></li>
+							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=video">동영상</a></li>
+							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=grade">평점/리뷰</a></li>
+							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=timeTable">상영시간표</a></li>
+							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=fameLine">명대사</a></li>
 						</ul>
 					</div>
 					</nav>
 				</div>
 				<div class="row">
+				
 				<span><h1>줄거리</h1></span>
 				<hr>
 				<span>${synopsis}</span>
