@@ -83,7 +83,9 @@
 						${movieInfo.synopsis }
 					</c:when>
 					<c:when test="${navCode  == 'staff'}">
-						배우/제작진
+						<div>
+							배우/제작진
+						</div>
 					</c:when>
 					<c:when test="${navCode  == 'picture'}">
 						사진
