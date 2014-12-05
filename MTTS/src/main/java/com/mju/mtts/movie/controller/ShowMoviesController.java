@@ -7,22 +7,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mju.mtts.movie.service.ShowMovieService;
+import com.mju.mtts.movie.service.TheaterService;
 
 @Controller
 public class ShowMoviesController {
 	
 	@Autowired
 	private ShowMovieService showMovieService;
+	private TheaterService theaterServie;
 	
 	@RequestMapping("/reserv/reserv.do")
 	public String reservHome(
 			HttpServletRequest request,
 			HttpServletResponse response,
-			ModelMap model){
+			ModelMap model,
+			@RequestParam(value = "theaterSeq", required = false) String theaterSeq){
 		
 		model.addAttribute("showMovie", showMovieService.getShowMovieAll());
+		model.addAttribute("theater", theaterServie.getTheaterAll(theaterSeq));
 		
 		return "reserv/reserv";
 	}

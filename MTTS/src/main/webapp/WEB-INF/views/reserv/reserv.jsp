@@ -15,9 +15,34 @@
 <body>
 	<jsp:include page="../common/header.jsp"></jsp:include>
 	
-			
-	<c:forEach var="showMovie" items="${showMovie }">
-		<p>${showMovie.title }</p>
-	</c:forEach>
+	<div id="wrap">
+		<div class="reserv_left">
+			<div id="movie_select">
+				<h3>영화 선택</h3>
+				<c:forEach var="showMovie" items="${showMovie }">
+					<p>${showMovie.title }</p>
+				</c:forEach>
+			</div>
+		
+			<div id="theater_select">
+				<h3>극장 선택DD</h3>
+				<c:forEach var="theater" items="${theater }">
+					<p>${theater.theaterName }</p>
+				</c:forEach>
+			</div>
+			<div id="screen_select"></div>
+		
+		
+		
+			<div id="day_select"></div>
+				<p>날짜 선택</p>
+			<div id="member_select"></div>
+		</div>
+		
+		<div class="reserv_right">
+			<p>선택정보</p>
+		</div>
+		
+	</div>
 </body>
 </html>

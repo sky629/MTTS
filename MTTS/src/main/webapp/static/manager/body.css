@@ -5,3 +5,18 @@ body {
 .sidebar-nav {
 	padding: 9px 0;
 }
+#wrap {width:960px; margin:0 auto; position:relative; border:1px solid #000;}
+.reserv_left	{
+	width:600px; padding:0; float:left; border:1px solid #000;
+}
+
+.reserv_right	{
+	width:340px; padding:0; float:right; border:1px solid #000;
+}
+
+#movie_select	{
+	width:275px; float:left;
+}
+#theater_select	{
+	width:275px: float:left; boder:1px solid #000;
+}
