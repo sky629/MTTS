@@ -15,10 +15,8 @@
 <body>
 	<jsp:include page="../common/header.jsp"></jsp:include>
 	
-	<c:forEach var="showMovie" items="${showMovies }">
-		<p>
-			
+	<c:forEach var="showMovie" items="${showMovie }">
+		<p>${showMovie.title }</p>
 	</c:forEach>
-	
 </body>
 </html>
