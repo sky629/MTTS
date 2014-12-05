@@ -33,7 +33,7 @@ public class MovieServiceImpl implements MovieService {
 			temp.get(i).setRate(getRate(movieDao.selectAll(param).get(i).getMovieSeq()));
 			temp.get(i).setCountry(getCountry(movieDao.selectAll(param).get(i).getMovieSeq()));
 		}
-			
+		
 		return temp;
 	}
 
