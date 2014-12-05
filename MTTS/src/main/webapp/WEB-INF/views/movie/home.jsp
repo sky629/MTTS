@@ -47,7 +47,7 @@
 				        <p><div class="span3"><b>등급</div> : </b>${movieInfo.rate}</p>
 				        <p><div class="span3"><b>국가</div> : </b>${movieInfo.country}</p>
 				        
-				        <p><a href="#" class="btn btn-primary">예매 하기</a> <a href="#" class="btn btn-default">예고편 보기</a></p>
+				        <p><a href="#" class="btn btn-primary">예매 하기</a> <a href="/reserv/reserv.do" class="btn btn-default">예고편 보기</a></p>
 			      	</div>
 			      	</div>
 			  	</div>

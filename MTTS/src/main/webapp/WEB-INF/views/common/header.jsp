@@ -21,7 +21,7 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
       <li class="active"><a href="/">영화 홈</a></li>
-      <li class="active"><a href="#">예매 하기</a></li>
+      <li class="active"><a href="/reserv/reserv.do">예매 하기</a></li>
       <li class="active"><a href="#">예매 확인</a></li>
     </ul>
     

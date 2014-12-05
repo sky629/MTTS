@@ -16,15 +16,16 @@ public class ShowMoviesController {
 	@Autowired
 	private ShowMovieService showMovieService;
 	
-	@RequestMapping("/reserv/index")
-	public String index(
+	@RequestMapping("/reserv/reserv.do")
+	public String reservHome(
 			HttpServletRequest request,
 			HttpServletResponse response,
 			ModelMap model){
 		
 		model.addAttribute("showMovie", showMovieService.getShowMovieAll());
 		
-		return "reserv/index";
+		return "reserv/reserv";
 	}
+	
 
 }

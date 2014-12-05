@@ -15,14 +15,9 @@
 <body>
 	<jsp:include page="../common/header.jsp"></jsp:include>
 	
-<<<<<<< HEAD
-		<p>
 			
-	
-=======
 	<c:forEach var="showMovie" items="${showMovie }">
 		<p>${showMovie.title }</p>
 	</c:forEach>
->>>>>>> branch 'master' of https://github.com/sky629/MTTS.git
 </body>
 </html>
