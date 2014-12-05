@@ -8,6 +8,7 @@
 <link href="../static/css/bootstrap.css" rel="stylesheet">
 <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
 <link href="../static/manager/body.css" rel="stylesheet">
+<link href="../resources/js/rateit/rateit.css" rel="stylesheet">
 </head>
 <body style="font-family: 나눔고딕, NanumGothic, ngeot, 돋움, DotumChe, Dotum">
 	<jsp:include page="../common/header.jsp"></jsp:include>
@@ -62,6 +63,7 @@
 	</div>
 	<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
-<script type="text/javascript" src="./resources/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../resources/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../resources/js/rateit/jquery.rateit.min.js"></script>
 
 </html>
