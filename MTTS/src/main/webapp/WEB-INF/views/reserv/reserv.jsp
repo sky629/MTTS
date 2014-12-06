@@ -23,7 +23,7 @@
 					<p class="reserv_nav_span">영화 선택</p>
 				</div>
 				<c:forEach var="showMovieV" items="${showMovie }">
-					<p>${showMovieV.title }</p>
+					<li><a href="/reserv/reserv.do?theaterSeq=${showMovieV.theaterSeq }">${showMovieV.title }</a></li>
 				</c:forEach>
 			</div>
 		
