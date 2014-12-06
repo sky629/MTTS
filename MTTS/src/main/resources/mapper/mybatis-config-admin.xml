@@ -21,6 +21,7 @@
 		<typeAlias alias="movie" type="com.mju.mtts.vo.movie.Movie" />
 		<typeAlias alias="showMovie" type="com.mju.mtts.vo.movie.ShowMovie" />
 		<typeAlias alias="theater" type="com.mju.mtts.vo.movie.Theater" />
+		<typeAlias alias="movieTime" type="com.mju.mtts.vo.movie.MovieTime" />
 
 	</typeAliases>
 

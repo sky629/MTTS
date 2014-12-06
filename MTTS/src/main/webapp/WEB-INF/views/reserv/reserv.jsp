@@ -16,30 +16,55 @@
 	<jsp:include page="../common/header.jsp"></jsp:include>
 	
 	<div id="wrap">
-		<div class="reserv_left">
-			<div id="movie_select">
-				<h3>영화 선택</h3>
-				<c:forEach var="showMovie" items="${showMovie }">
-					<p>${showMovie.title }</p>
+		<div class="reserv">
+		
+			<div id="movie_select" class="reserv_menu">
+				<div class="reserv_nav">
+					<p class="reserv_nav_span">영화 선택</p>
+				</div>
+				<c:forEach var="showMovieV" items="${showMovie }">
+					<p>${showMovieV.title }</p>
 				</c:forEach>
 			</div>
 		
-			<div id="theater_select">
-				<h3>극장 선택DD</h3>
+			<div id="theater_select" class="reserv_menu">
+				<div class="reserv_nav">
+					<p class="reserv_nav_span">영화관 선택</p>
+				</div>
 				<c:forEach var="theater" items="${theater }">
 					<p>${theater.theaterName }</p>
 				</c:forEach>
 			</div>
-			<div id="screen_select"></div>
+			
+			
 		
+			<div id="day_select" class="reserv_menu">
+				<div class="reserv_nav">
+					<p class="reserv_nav_span">날짜 선택</p>
+				</div>
+				
+			</div>
+			
 		
-		
-			<div id="day_select"></div>
-				<p>날짜 선택</p>
+			<div id="screen_select" class="reserv_menu">
+				<div class="reserv_nav">
+					<p class="reserv_nav_span">상영관 / 시간 선택</p>
+				</div>
+				<c:forEach var="movieTimeS" items="${movieTime}">
+					<ul>
+						<li>${movieTimeS.screenName }</li>
+						<ul>
+							<li>${movieTimeS.showTime }</li>
+						</ul>
+					</ul>
+				</c:forEach>
+			</div>
+			
 			<div id="member_select"></div>
+			
 		</div>
 		
-		<div class="reserv_right">
+		<div class="reserv">
 			<p>선택정보</p>
 		</div>
 		

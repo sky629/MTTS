@@ -5,18 +5,16 @@ body {
 .sidebar-nav {
 	padding: 9px 0;
 }
-#wrap {width:960px; margin:0 auto; position:relative; border:1px solid #000;}
-.reserv_left	{
-	width:600px; padding:0; float:left; border:1px solid #000;
+#wrap {width:960px; margin:0 auto; position:relative;}
+
+.reserv	{
+	width:960px; margin:40px 0; position:relative; border:1px solid #000;
+	height:500px;
+}
+.reserv_nav	{
+	heigh:80px; background-color:#feeccd;
 }
 
-.reserv_right	{
-	width:340px; padding:0; float:right; border:1px solid #000;
-}
-
-#movie_select	{
-	width:275px; float:left;
-}
-#theater_select	{
-	width:275px: float:left; boder:1px solid #000;
+.reserv_menu	{
+	float:left; width:180px; border:2px solid #000;
 }
