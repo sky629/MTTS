@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mju.mtts.dao.movie.MovieDao;
 import com.mju.mtts.movie.service.MovieService;
+import com.mju.mtts.vo.movie.Genre;
 import com.mju.mtts.vo.movie.Movie;
 
 @Service("MovieService")
@@ -53,11 +54,11 @@ public class MovieServiceImpl implements MovieService {
 	}
 
 	@Override
-	public List<String> getGenre(String movieSeq) {
-		// TODO Auto-generated method stub
-		List<String> genre;
-		genre = movieDao.getGenre(movieSeq);
-		return genre;
+	public List<Genre> getGenre(String movieSeq) {
+		Movie param = new Movie();
+		param.setMovieSeq(movieSeq);
+	
+		return movieDao.getGenre(param);
 	}
 
 	@Override
@@ -67,5 +68,25 @@ public class MovieServiceImpl implements MovieService {
 	
 	public String getRate(String movieSeq){
 		return movieDao.getRate(movieSeq);
+	}
+
+	@Override
+	public List<Movie> getGenreMovie(String genreSeq, String sortCode) {
+		Movie param = new Movie();
+		param.setGenreSeq(genreSeq);
+		param.setSortCode(sortCode);
+		
+		List<Movie> temp =  new ArrayList<Movie>();
+		
+		temp = movieDao.getGenreMovie(param);
+		
+		for(int i=0; i<temp.size(); i++){
+			
+			temp.get(i).setGenre(getGenre(movieDao.getGenreMovie(param).get(i).getMovieSeq())); 
+			temp.get(i).setRate(getRate(movieDao.getGenreMovie(param).get(i).getMovieSeq()));
+			temp.get(i).setCountry(getCountry(movieDao.getGenreMovie(param).get(i).getMovieSeq()));
+		}
+		
+		return temp;
 	}
 }

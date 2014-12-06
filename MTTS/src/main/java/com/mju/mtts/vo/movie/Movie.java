@@ -9,7 +9,8 @@ public class Movie {
 	private String synopsis;
 	private String produceYear;
 	private String openDate;
-	private List<String> genre;
+	private List<Genre> genre;
+	private String genreSeq;
 	private String rate;
 	private List<String> country;
 	private Double grade;
@@ -50,10 +51,10 @@ public class Movie {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-	public List<String> getGenre() {
+	public List<Genre> getGenre() {
 		return genre;
 	}
-	public void setGenre(List<String> genre) {
+	public void setGenre(List<Genre> genre) {
 		this.genre = genre;
 	}
 	public String getRate() {
@@ -109,6 +110,12 @@ public class Movie {
 	}
 	public void setCountry(List<String> country) {
 		this.country = country;
+	}
+	public String getGenreSeq() {
+		return genreSeq;
+	}
+	public void setGenreSeq(String genreSeq) {
+		this.genreSeq = genreSeq;
 	}
 	
 	

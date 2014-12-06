@@ -37,6 +37,40 @@
 		
 	</select>
 	
+	<select id="getGenreMovie" resultType="movie">
+		SELECT
+				m.MOVIE_SEQ as 'movieSeq'
+			,	m.TITLE as 'title'
+			,	m.PLAYTIME as 'playTime'
+			,	m.SYNOPSIS as 'synopsis'
+			,	m.PRODUCE_YEAR as 'produceYear'
+			,	m.OPEN_DATE as 'openDate'
+			,	m.GRADE_AVG as 'gradeAvg'
+			,	m.RESERV_COUNT as 'reservCount'
+			,	g.GENRE_SEQ as 'genreSeq'
+		
+		FROM	admin.MOVIE m NATURAL JOIN admin.MOVIEGENRE g
+		WHERE	g.GENRE_SEQ = #{genreSeq}
+		
+		<if test="sortCode == null">
+			GROUP BY m.MOVIE_SEQ
+		</if>
+		<if test="sortCode != null">
+			<choose>
+				<when test="sortCode == 'grade'">
+					GROUP BY m.GRADE_AVG DESC
+			    </when>
+			    <when test="sortCode == 'open'">
+			      	GROUP BY m.OPEN_DATE DESC
+			    </when>
+			    <when test="sortCode == 'reserv'">
+			    	GROUP BY m.RESERV_COUNT DESC
+			    </when>
+		 	</choose>
+		</if>
+		
+	</select>
+	
 	<select id="getGrade" resultType="Double">
 		SELECT
 				avg(GRADE) as 'grade'
@@ -46,9 +80,10 @@
 		GROUP BY	MOVIE_SEQ
 	</select>
 	
-	<select id="getGenre" resultType="String">
+	<select id="getGenre" resultType="genre">
 		SELECT 
-				GENRE_NAME as 'genre'
+				GENRE_SEQ as 'genreSeq'
+		,		GENRE_NAME as 'genre'
 				
 		FROM	admin.GENRE natural join admin.MOVIEGENRE
 		WHERE	MOVIE_SEQ = #{movieSeq}

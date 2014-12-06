@@ -55,6 +55,23 @@ public class MovieController {
 
 	}
 	
+	@RequestMapping("/movie/home.do")
+	public String GenreMovie(
+			HttpServletRequest request,
+			HttpServletResponse response,
+			ModelMap mm,
+			@RequestParam(value = "movieSeq", required = false) String movieSeq,
+			@RequestParam(value = "sortCode", required = false) String sortCode,
+			@RequestParam(value = "genreSeq", required = false) String genreSeq) {
+
+		logger.info("GenreMovie");
+
+		mm.addAttribute("movieInfo", movieService.getGenreMovie(genreSeq, sortCode));
+		
+		return "movie/home";
+
+	}
+	
 	@RequestMapping("/movie/movieDetail.do")
 	public String MovieDetail(
 			HttpServletRequest request,

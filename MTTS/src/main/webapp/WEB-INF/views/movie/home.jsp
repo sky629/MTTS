@@ -39,7 +39,7 @@
 							</a>
 						</div>
 						<p><div class="span3"><b>평점</div> : </b><div class="rateit" data-rateit-value=${(movieInfo.gradeAvg)/2 } data-rateit-ispreset="true" data-rateit-readonly="true"></div></p>
-				        <p><div class="span3"><b>장르</div> : </b><c:forEach var="genre" items="${movieInfo.genre }"><a href="#" >${genre}</a> </c:forEach></p>
+				        <p><div class="span3"><b>장르</div> : </b><c:forEach var="genre" items="${movieInfo.genre }"><a href="/movie/home.do?genreSeq=${genre.genreSeq }" >${genre.genre}</a> </c:forEach></p>
 				        <p><div class="span3"><b>국가</div> : </b><c:forEach var="country" items="${movieInfo.country }">${country} </c:forEach></p>
 				        <p><div class="span3"><b>상영시간</div> : </b>${movieInfo.playTime}</p>
 				        <p><div class="span3"><b>개봉일</div> : </b>${movieInfo.openDate}</p>
@@ -48,7 +48,7 @@
 				        <p><div class="span3"><b>등급</div> : </b>${movieInfo.rate}</p>
 				        
 				        
-				        <p><a href="#" class="btn btn-primary">예매 하기</a> <a href="/reserv/reserv.do" class="btn btn-default">예고편 보기</a></p>
+				        <p><a href="/reserv/reserv.do" class="btn btn-primary">예매 하기</a> <a href="#" class="btn btn-default">예고편 보기</a></p>
 			      	</div>
 			      	</div>
 			  	</div>

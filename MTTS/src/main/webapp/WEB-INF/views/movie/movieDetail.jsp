@@ -23,7 +23,7 @@
 							<p><h1>${movieInfo.title}</h1></p>
 							<hr>
 							<p><div class="span3"><b>평점</b></div> : <div class="rateit" data-rateit-value=${(movieInfo.gradeAvg)/2 } data-rateit-ispreset="true" data-rateit-readonly="true"></div></p>
-							<p><div class="span3"><b>장르</div> : </b><c:forEach var="genre" items="${movieInfo.genre }"><a href="#" >${genre}</a> </c:forEach></p>
+							<p><div class="span3"><b>장르</div> : </b><c:forEach var="genre" items="${movieInfo.genre }"><a href="/movie/home.do?genreSeq=${genre.genreSeq }" >${genre.genre}</a> </c:forEach></p>
 							<p><div class="span3"><b>국가</div> : </b><c:forEach var="country" items="${movieInfo.country }">${country} </c:forEach></p>
 							<p><div class="span3"><b>상영시간</b></div> : ${movieInfo.playTime }</p>
 							<p><div class="span3"><b>개봉날짜</b></div> : ${movieInfo.openDate }</p>
