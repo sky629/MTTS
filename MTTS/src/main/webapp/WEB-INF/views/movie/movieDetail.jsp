@@ -85,6 +85,7 @@
 					<c:when test="${navCode  == 'staff'}">
 						<div>
 							배우/제작진
+							<jsp:include page="./movieActor.jsp"></jsp:include>
 						</div>
 					</c:when>
 					<c:when test="${navCode  == 'picture'}">
