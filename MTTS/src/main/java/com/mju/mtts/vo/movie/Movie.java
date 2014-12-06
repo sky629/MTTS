@@ -3,7 +3,8 @@ package com.mju.mtts.vo.movie;
 import java.util.List;
 
 public class Movie {
-		private String movieSeq;
+	
+	private String movieSeq;
 	private String title;
 	private String playTime;
 	private String synopsis;
