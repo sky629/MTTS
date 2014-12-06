@@ -17,8 +17,7 @@ public class TheaterServiceImpl implements TheaterService {
 
 	@Override
 	public List<Theater> getTheaterAll(String theaterSeq) {
-		// TODO Auto-generated method stub
-		
+
 		return theaterDao.selectAll(theaterSeq);
 	}
 
