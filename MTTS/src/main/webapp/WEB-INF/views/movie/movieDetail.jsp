@@ -133,10 +133,7 @@
 					</c:when>
 					<c:when test="${navCode  == 'staff'}">
 						<div>
-<<<<<<< HEAD
 							배우/제작진
-=======
->>>>>>> refs/remotes/origin/master
 							<jsp:include page="./movieActor.jsp"></jsp:include>
 						</div>
 					</c:when>
