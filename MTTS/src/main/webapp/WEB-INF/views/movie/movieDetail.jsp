@@ -22,14 +22,14 @@
 						style="min-width: 450px; min-height: 300px;">
 							<p><h1>${movieInfo.title}</h1></p>
 							<hr>
-							<p><div class="span3"><b>평점</b></div> : <div class="rateit" data-rateit-value=${(movieInfo.gradeAvg)/2 } data-rateit-ispreset="true" data-rateit-readonly="true"></div></p>
-							<p><div class="span3"><b>장르</div> : </b><c:forEach var="genre" items="${movieInfo.genre }"><a href="/movie/home.do?genreSeq=${genre.genreSeq }" >${genre.genre}</a> </c:forEach></p>
-							<p><div class="span3"><b>국가</div> : </b><c:forEach var="country" items="${movieInfo.country }">${country} </c:forEach></p>
-							<p><div class="span3"><b>상영시간</b></div> : ${movieInfo.playTime }</p>
-							<p><div class="span3"><b>개봉날짜</b></div> : ${movieInfo.openDate }</p>
-							<p><div class="span3"><b>감독</b></div> : </p>
-							<p><div class="span3"><b>출연</b></div> : </p>
-							<p><div class="span3"><b>등급</b></div> : ${movieInfo.rate }</p>
+							<p><div class="span2"><b>평점</b></div> : <div class="rateit" data-rateit-value=${(movieInfo.gradeAvg)/2 } data-rateit-ispreset="true" data-rateit-readonly="true"></div></p>
+							<p><div class="span2"><b>장르</div> : </b><c:forEach var="genre" items="${movieInfo.genre }"><a href="/movie/home.do?genreSeq=${genre.genreSeq }" >${genre.genre}</a> </c:forEach></p>
+							<p><div class="span2"><b>국가</div> : </b><c:forEach var="country" items="${movieInfo.country }">${country} </c:forEach></p>
+							<p><div class="span2"><b>상영시간</b></div> : ${movieInfo.playTime }</p>
+							<p><div class="span2"><b>개봉날짜</b></div> : ${movieInfo.openDate }</p>
+							<p><div class="span2"><b>감독</b></div> : <c:forEach var="director" items="${director }">${director.name} </c:forEach></p>
+							<p><div class="span2"><b>출연</b></div> : <c:forEach var="actor" items="${actor }">${actor.name} </c:forEach></p>
+							<p><div class="span2"><b>등급</b></div> : ${movieInfo.rate }</p>
 					</div>
 					<div class="col-md-3"
 						style="padding: 0 0 0 25px; min-width: 150px; min-height: 300px; max-height: 400px;">
@@ -40,13 +40,62 @@
 					<nav class="navbar navbar-default" role="navigation">
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav">
-							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=synopsis">줄거리</a></li>
-							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=staff">배우/제작진</a></li>
-							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=picture">사진</a></li>
-							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=video">동영상</a></li>
-							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=grade">평점/리뷰</a></li>
-							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=timeTable">상영시간표</a></li>
-							<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=fameLine">명대사</a></li>
+							<c:choose>
+								<c:when test="${navCode=='synopsis' }">
+									<li class="active"><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=synopsis">줄거리</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=synopsis">줄거리</a></li>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${navCode=='staff' }">
+									<li class="active"><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=staff">배우/제작진</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=staff">배우/제작진</a></li>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${navCode=='picture' }">
+									<li class="active"><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=picture">사진</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=picture">사진</a></li>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${navCode=='video' }">
+									<li class="active"><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=video">동영상</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=video">동영상</a></li>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${navCode=='grade' }">
+									<li class="active"><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=grade">평점/리뷰</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=grade">평점/리뷰</a></li>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${navCode=='timeTable' }">
+									<li class="active"><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=timeTable">상영시간표</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=timeTable">상영시간표</a></li>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${navCode=='fameLine' }">
+									<li class="active"><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=fameLine">명대사</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq }&navCode=fameLine">명대사</a></li>
+								</c:otherwise>
+							</c:choose>
 						</ul>
 					</div>
 					</nav>
@@ -84,7 +133,7 @@
 					</c:when>
 					<c:when test="${navCode  == 'staff'}">
 						<div>
-							배우/제작진
+							<jsp:include page="./movieActor.jsp"></jsp:include>
 						</div>
 					</c:when>
 					<c:when test="${navCode  == 'picture'}">

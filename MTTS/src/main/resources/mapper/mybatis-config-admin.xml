@@ -23,6 +23,7 @@
 		<typeAlias alias="theater" type="com.mju.mtts.vo.movie.Theater" />
 		<typeAlias alias="movieTime" type="com.mju.mtts.vo.movie.MovieTime" />
 		<typeAlias alias="genre" type="com.mju.mtts.vo.movie.Genre" />
+		<typeAlias alias="staff" type="com.mju.mtts.vo.movie.Staff" />
 
 	</typeAliases>
 

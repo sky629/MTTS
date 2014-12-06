@@ -9,14 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-
-
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mju.mtts.movie.service.MovieService;
-import com.mju.mtts.vo.movie.Movie;
+import com.mju.mtts.movie.service.StaffService;
 
 /**
  * Handles requests for the application home page.
@@ -31,6 +27,9 @@ public class MovieController {
 
 	@Autowired
 	private MovieService movieService;
+	
+	@Autowired
+	private StaffService staffService;
 
 	
 	@RequestMapping("/")
@@ -85,6 +84,8 @@ public class MovieController {
 		
 		
 		mm.addAttribute("movieInfo", movieService.getMovieAll(movieSeq, null).get(0));
+		mm.addAttribute("actor", staffService.getMovieActor(movieSeq));
+		mm.addAttribute("director", staffService.getMovieDirector(movieSeq));
 		if(navCode != null){
 			mm.addAttribute("synopsis", movieService.getMovieAll(movieSeq, null).get(0).getSynopsis());
 			mm.addAttribute("navCode", navCode);
