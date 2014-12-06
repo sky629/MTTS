@@ -56,7 +56,7 @@
 				<span><h1>
 				<c:choose>
 					<c:when test="${navCode  == 'synopsis'}">
-						줄거리
+						${movieIfo.synopsis }
 					</c:when>
 					<c:when test="${navCode  == 'staff'}">
 						배우/제작진
@@ -68,7 +68,7 @@
 						동영상
 					</c:when>
 					<c:when test="${navCode  == 'grade'}">
-						평점/리뷰
+						${movieInfo.grade }
 					</c:when>
 					<c:when test="${navCode  == 'timeTable'}">
 						상영시간표

@@ -49,17 +49,12 @@ public class MovieController {
 			searchCode = null;
 		}
 		
-		System.out.println(sortCode);
-		System.out.println(searchCode);
-		System.out.println(keyword);
-		
-		
-		
 		mm.addAttribute("movieInfo", movieService.getMovieAll(movieSeq, sortCode));
 		
 		return "movie/home";
 
 	}
+	
 	@RequestMapping("/movie/movieDetail.do")
 	public String MovieDetail(
 			HttpServletRequest request,

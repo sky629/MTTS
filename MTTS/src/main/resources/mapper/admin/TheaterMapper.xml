@@ -8,8 +8,6 @@
 		,	THEATER_NAME as 'theaterName'
 		FROM
 			admin.THEATER
-		<if test="theaterSeq != null">
 			WHERE THEATER_SEQ = #{theaterSeq}
-		</if>
 	</select>
 </mapper>
