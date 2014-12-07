@@ -143,7 +143,9 @@
 						</div>
 					</c:when>
 					<c:when test="${navCode  == 'video'}">
-						동영상
+						<div align="center">
+							<jsp:include page="./movieVideo.jsp"></jsp:include>
+						</div>
 					</c:when>
 					<c:when test="${navCode  == 'grade'}">
 						평점/리뷰
