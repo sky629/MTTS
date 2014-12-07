@@ -1,7 +1,6 @@
 package com.mju.mtts.vo.movie;
 
 public class Staff {
-	private String movieSeq;
 	private String staffSeq;
 	private String name;
 	private String birthDate;
@@ -38,12 +37,6 @@ public class Staff {
 	}
 	public void setProfile(String profile) {
 		this.profile = profile;
-	}
-	public String getMovieSeq() {
-		return movieSeq;
-	}
-	public void setMovieSeq(String movieSeq) {
-		this.movieSeq = movieSeq;
 	}
 	public String getRole() {
 		return role;

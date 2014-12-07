@@ -20,8 +20,23 @@ public class Movie {
 	private String keyword;
 	private String gradeAvg;
 	private String reservCount;
+	private List<Staff> actor;
+	private List<Staff> director;
 	
 	
+	
+	public List<Staff> getActor() {
+		return actor;
+	}
+	public void setActor(List<Staff> actor) {
+		this.actor = actor;
+	}
+	public List<Staff> getDirector() {
+		return director;
+	}
+	public void setDirector(List<Staff> director) {
+		this.director = director;
+	}
 	public String getGradeAvg() {
 		return gradeAvg;
 	}
@@ -118,7 +133,6 @@ public class Movie {
 	public void setGenreSeq(String genreSeq) {
 		this.genreSeq = genreSeq;
 	}
-	
 	
 	
 }

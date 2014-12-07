@@ -25,6 +25,7 @@
 		<typeAlias alias="genre" type="com.mju.mtts.vo.movie.Genre" />
 		<typeAlias alias="staff" type="com.mju.mtts.vo.movie.Staff" />
 		<typeAlias alias="seatInfo" type="com.mju.mtts.vo.movie.SeatInfo" />
+		<typeAlias alias="picture" type="com.mju.mtts.vo.movie.Picture" />
 
 	</typeAliases>
 

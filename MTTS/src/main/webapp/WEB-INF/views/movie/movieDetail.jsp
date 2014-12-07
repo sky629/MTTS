@@ -138,7 +138,9 @@
 						</div>
 					</c:when>
 					<c:when test="${navCode  == 'picture'}">
-						사진
+						<div>
+							<jsp:include page="./moviePicture.jsp"></jsp:include>
+						</div>
 					</c:when>
 					<c:when test="${navCode  == 'video'}">
 						동영상
