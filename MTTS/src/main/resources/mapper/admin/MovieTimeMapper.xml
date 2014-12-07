@@ -13,7 +13,13 @@
 			,	t.MOVIE_SEQ as 'movieSeq'
 			
 		FROM	admin.SCREEN s, admin.SHOWTIMETABLE t
-		WHERE s.THEATER_SEQ = t.THEATER_SEQ AND s.SCREEN_SEQ = t.SCREEN_SEQ;
+	
+		WHERE
+				s.SCREEN_SEQ = t.SCREEN_SEQ	AND
+                s.THEATER_SEQ = t.THEATER_SEQ AND
+                
+				t.THEATER_SEQ = #{0}	AND
+				t.MOVIE_SEQ = #{1}
 		
 	</select>
 </mapper>

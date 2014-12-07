@@ -5,16 +5,33 @@ body {
 .sidebar-nav {
 	padding: 9px 0;
 }
-#wrap {width:960px; margin:0 auto; position:relative;}
+#wrap {
+	width:960px; margin:0 auto; position:relative;
+	text-decoration:none;
+}
+li{list-style:none;}
 
 .reserv	{
 	width:960px; margin:40px 0; position:relative; border:1px solid #000;
 	height:500px;
 }
+
+
 .reserv_nav	{
-	heigh:80px; background-color:#feeccd;
+	height:30px; background-color:#feeccd; text-align:center;
 }
 
 .reserv_menu	{
-	float:left; width:180px; border:2px solid #000;
+	float:left; width:300px; border:2px solid #000;
+	height:300px;  margin:5px;
+}
+
+#reserv_second_row	{
+	clear:both;
+}
+#screen_select	{
+	float:left; width:500px; border:2px solid #000;
+}
+#member_select	{
+	float:left; width:300px; border:2px solid #000;
 }

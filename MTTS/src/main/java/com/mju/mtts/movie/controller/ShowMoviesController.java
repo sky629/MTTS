@@ -38,6 +38,11 @@ public class ShowMoviesController {
 		model.addAttribute("theater", theaterServie.getTheaterAll(theaterSeq));
 		model.addAttribute("movieTime", MovieTimeService.getMovieTimeAll(theaterSeq, movieSeq));
 		
+		model.addAttribute("ms", movieSeq);
+		
+		
+		System.out.println(movieSeq);
+		
 		return "reserv/reserv";
 	}
 	
