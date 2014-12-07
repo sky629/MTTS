@@ -6,6 +6,6 @@ import com.mju.mtts.vo.movie.MovieTime;
 
 public interface MovieTimeDao {
 	
-	List<MovieTime> selectAll(String theaterSeq, String movieSeq);
+	List<MovieTime> selectAll(String theaterSeq, String movieSeq, String showDate);
 
 }

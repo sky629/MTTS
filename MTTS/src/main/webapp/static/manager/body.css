@@ -12,26 +12,34 @@ body {
 li{list-style:none;}
 
 .reserv	{
-	width:960px; margin:40px 0; position:relative; border:1px solid #000;
-	height:500px;
+	position:relative; border:1px solid #000;
+	height:600px;
+	float:left;
 }
-
+#left	{
+	width:665px;
+}
+#right	{
+	width:280px;
+}
 
 .reserv_nav	{
 	height:30px; background-color:#feeccd; text-align:center;
 }
 
 .reserv_menu	{
-	float:left; width:300px; border:2px solid #000;
-	height:300px;  margin:5px;
+	float:left; width:210px; border:2px solid #000;
+	height:250px;  margin:5px;
 }
 
 #reserv_second_row	{
 	clear:both;
 }
 #screen_select	{
-	float:left; width:500px; border:2px solid #000;
+	float:left; width:390px; border:2px solid #000; margin:5px;
 }
 #member_select	{
-	float:left; width:300px; border:2px solid #000;
+	float:left; width:250px; border:2px solid #000;
+	height:200px;
+	margin:5px;
 }

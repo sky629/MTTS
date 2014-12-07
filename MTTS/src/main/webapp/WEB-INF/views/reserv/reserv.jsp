@@ -17,17 +17,12 @@
 
 
 
-
-
-
-
-
 </head>
 <body>
 	<jsp:include page="../common/header.jsp"></jsp:include>
 	
 	<div id="wrap">
-		<div class="reserv">
+		<div class="reserv" id="left">
 		
 			<div id="movie_select" class="reserv_menu">
 				<div class="reserv_nav">
@@ -56,31 +51,50 @@
 					<p class="reserv_nav_span">날짜 선택</p>
 				</div>
 				<div>
-
-
-<div class="demo">  
-  
-<p>Date:  
-  <input type="text" id="datepicker" size="9">  
-</p>  
-</div><!-- End demo -->  
-  
-<div class="demo-description">  
-  
-<p>Show month and year dropdowns in place of the static month/year header to facilitate navigation through large timeframes.  Add the boolean <code>changeMonth</code> and <code>changeYear</code> options.</p>  
-  
-</div>
-					
+					<li><a href="/reserv/reserv.do?theaterSeq=${ts}&movieSeq=${ms }&showDate=20141211">12월 11일</a></li>
 				</div>
 				
 			</div>
 			
-		
+			<div id="reserv_second_row">
+				<div id="screen_select">
+					<div class="reserv_nav">
+						<p class="reserv_nav_span">상영관 / 시간 선택</p>
+					</div>
+					<c:forEach var="movieTimeS" items="${movieTime}">
+						<ul>
+							<li>${movieTimeS.screenName }</li>
+							<ul>
+								<li>${movieTimeS.showTime }</li>
+							</ul>
+						</ul>
+					</c:forEach>
+				</div>
+				
+				<div id="member_select">
+					<div class="reserv_nav">
+						<p class="reserv_nav_span">좌석선택</p>
+					</div>
+					<c:forEach var="seatInfo" items="${seatInfo}">
+						<ul>
+							<li>${seatInfo.seatNumber }</li>
+						</ul>
+					</c:forEach>
+				</div>
+			</div>
 			
 		</div>
 		
-		<div class="reserv">
-			<p>선택정보</p>
+		<div class="reserv" id="right">
+			
+				<div class="reserv_nav">
+					<p class="reserv_nav_span">예매 정보</p>
+				</div>
+				
+				<form action="" method="post">
+					
+				</form>
+				
 		</div>
 		
 	</div>

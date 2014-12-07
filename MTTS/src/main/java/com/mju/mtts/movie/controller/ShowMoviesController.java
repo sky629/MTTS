@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mju.mtts.movie.service.MovieTimeService;
+import com.mju.mtts.movie.service.SeatInfoService;
 import com.mju.mtts.movie.service.ShowMovieService;
 import com.mju.mtts.movie.service.TheaterService;
 
@@ -25,20 +26,26 @@ public class ShowMoviesController {
 	@Autowired
 	private MovieTimeService MovieTimeService;
 	
+	@Autowired
+	private SeatInfoService seatInfoService;
+	
 	@RequestMapping("/reserv/reserv.do")
 	public String reservHome(
 			HttpServletRequest request,
 			HttpServletResponse response,
 			ModelMap model,
 			@RequestParam(value = "theaterSeq", required = false) String theaterSeq,
-			@RequestParam(value = "movieSeq", required = false) String movieSeq
+			@RequestParam(value = "movieSeq", required = false) String movieSeq,
+			@RequestParam(value = "showDate", required = false) String showDate
 			){
 		
 		model.addAttribute("showMovie", showMovieService.getShowMovieAll());
 		model.addAttribute("theater", theaterServie.getTheaterAll(theaterSeq));
-		model.addAttribute("movieTime", MovieTimeService.getMovieTimeAll(theaterSeq, movieSeq));
+		model.addAttribute("movieTime", MovieTimeService.getMovieTimeAll(theaterSeq, movieSeq, showDate));
+		model.addAttribute("seatInfo", seatInfoService.getSeatInfoAll());
 		
 		model.addAttribute("ms", movieSeq);
+		model.addAttribute("ts", theaterSeq);
 		
 		
 		System.out.println(movieSeq);
