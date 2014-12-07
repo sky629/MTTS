@@ -22,6 +22,7 @@ public class Movie {
 	private String reservCount;
 	private List<Staff> actor;
 	private List<Staff> director;
+	private List<Picture> picture;
 	
 	
 	
@@ -132,6 +133,12 @@ public class Movie {
 	}
 	public void setGenreSeq(String genreSeq) {
 		this.genreSeq = genreSeq;
+	}
+	public List<Picture> getPicture() {
+		return picture;
+	}
+	public void setPicture(List<Picture> picture) {
+		this.picture = picture;
 	}
 	
 	

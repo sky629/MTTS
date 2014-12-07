@@ -27,8 +27,8 @@
 							<p><div class="span2"><b>국가</div> : </b><c:forEach var="country" items="${movieInfo.country }">${country} </c:forEach></p>
 							<p><div class="span2"><b>상영시간</b></div> : ${movieInfo.playTime }</p>
 							<p><div class="span2"><b>개봉날짜</b></div> : ${movieInfo.openDate }</p>
-							<p><div class="span2"><b>감독</b></div> : <c:forEach var="director" items="${director }">${director.name} </c:forEach></p>
-							<p><div class="span2"><b>출연</b></div> : <c:forEach var="actor" items="${actor }">${actor.name} </c:forEach></p>
+							<p><div class="span2"><b>감독</b></div> : <c:forEach var="director" items="${movieInfo.director }">${director.name} </c:forEach></p>
+							<p><div class="span2"><b>출연</b></div> : <c:forEach var="actor" items="${movieInfo.actor }">${actor.name} </c:forEach></p>
 							<p><div class="span2"><b>등급</b></div> : ${movieInfo.rate }</p>
 					</div>
 					<div class="col-md-3"
@@ -138,7 +138,7 @@
 						</div>
 					</c:when>
 					<c:when test="${navCode  == 'picture'}">
-						<div>
+						<div align="center">
 							<jsp:include page="./moviePicture.jsp"></jsp:include>
 						</div>
 					</c:when>
