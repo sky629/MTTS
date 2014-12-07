@@ -143,4 +143,15 @@
 			AND
 				admin.MOVIE_PRODUCE.JOB_CODE IN (10)
 	</select>
+	
+	<select id="getMoviePicture" resultType="Picture">
+		SELECT
+				PICTURE_NAME as 'pictureName'
+			,	PICTURE_CODE as 'pictureCode'
+			,	PICTURE_URL as 'pictureURL'
+			
+		FROM	admin.MOVIE_PICTURE
+		WHERE	admin.MOVIE_PICTURE.MOVIE_SEQ = #{movieSeq} 
+
+	</select>
 </mapper>

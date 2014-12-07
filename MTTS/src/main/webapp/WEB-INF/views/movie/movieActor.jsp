@@ -15,7 +15,7 @@
 	<h2>배우</h2>
 	<hr>
 	<div class="row">
-		<c:forEach var="actor" items="${actor}">
+		<c:forEach var="actor" items="${movieInfo.actor}">
 			<div class="col-sm-6 col-md-4" style="padding:10px;">
 		    	<div class="thumbnail">
 			      	<img src="http://tv03.search.naver.net/nhnsvc?size=120x150&quality=9&q=http://sstatic.naver.net/people/146/201410291637047751.jpg" alt="영화 포스터">
@@ -38,7 +38,7 @@
 		<h2>감독</h2>
 		<hr>
 		<div class="row">
-		<c:forEach var="director" items="${director}">
+		<c:forEach var="director" items="${movieInfo.director}">
 			<div class="col-sm-6 col-md-4" style="padding:10px;">
 		    	<div class="thumbnail">
 			      	<img src="http://tv03.search.naver.net/nhnsvc?size=120x150&quality=9&q=http://sstatic.naver.net/people/146/201410291637047751.jpg" alt="영화 포스터">
