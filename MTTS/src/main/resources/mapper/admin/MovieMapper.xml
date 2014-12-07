@@ -154,4 +154,5 @@
 		WHERE	admin.MOVIE_PICTURE.MOVIE_SEQ = #{movieSeq} 
 
 	</select>
+	
 </mapper>

@@ -10,6 +10,7 @@ import com.mju.mtts.dao.movie.MovieDao;
 import com.mju.mtts.movie.service.MovieService;
 import com.mju.mtts.vo.movie.Genre;
 import com.mju.mtts.vo.movie.Movie;
+import com.mju.mtts.vo.movie.Picture;
 import com.mju.mtts.vo.movie.Staff;
 
 @Service("MovieService")
@@ -34,6 +35,7 @@ public class MovieServiceImpl implements MovieService {
 			temp.get(i).setCountry(getCountry(movieDao.selectAll(param).get(i).getMovieSeq()));
 			temp.get(i).setActor(getMovieActor(movieDao.selectAll(param).get(i).getMovieSeq()));
 			temp.get(i).setDirector(getMovieDirector(movieDao.selectAll(param).get(i).getMovieSeq()));
+			temp.get(i).setPicture(getMoviePicture(movieDao.selectAll(param).get(i).getMovieSeq()));
 		}
 		
 		return temp;
@@ -103,5 +105,12 @@ public class MovieServiceImpl implements MovieService {
 		param.setMovieSeq(movieSeq);
 		
 		return movieDao.getMovieDirector(param);
+	}
+
+	@Override
+	public List<Picture> getMoviePicture(String movieSeq) {
+		Movie param = new Movie();
+		param.setMovieSeq(movieSeq);
+		return movieDao.getMoviePicture(param);
 	}
 }
