@@ -79,7 +79,6 @@ public class MovieController {
 		mm.addAttribute("movieInfo", movieService.getMovieAll(movieSeq, null).get(0));
 	
 		if(navCode != null){
-			mm.addAttribute("synopsis", movieService.getMovieAll(movieSeq, null).get(0).getSynopsis());
 			mm.addAttribute("navCode", navCode);
 			System.out.println(movieSeq+","+navCode);
 		}else{
