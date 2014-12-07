@@ -49,10 +49,7 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public Double getGrade(String movieSeq) {
-		Double grade;
-		grade = movieDao.getGrade(movieSeq);
-		System.out.println("LOG : "+grade);
-		return grade;
+		return movieDao.getGrade(movieSeq);
 	}
 
 	@Override
