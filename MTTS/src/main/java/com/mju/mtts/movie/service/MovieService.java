@@ -22,4 +22,6 @@ public interface MovieService {
 	List<Staff> getMovieDirector(String movieSeq);
 	
 	List<Picture> getMoviePicture(String movieSeq);
+	List<Picture> getMoviePoster(String movieSeq);
+	
 }

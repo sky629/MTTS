@@ -23,6 +23,7 @@ public class Movie {
 	private List<Staff> actor;
 	private List<Staff> director;
 	private List<Picture> picture;
+	private List<Picture> poster;
 	
 	
 	
@@ -139,6 +140,12 @@ public class Movie {
 	}
 	public void setPicture(List<Picture> picture) {
 		this.picture = picture;
+	}
+	public List<Picture> getPoster() {
+		return poster;
+	}
+	public void setPoster(List<Picture> poster) {
+		this.poster = poster;
 	}
 	
 	

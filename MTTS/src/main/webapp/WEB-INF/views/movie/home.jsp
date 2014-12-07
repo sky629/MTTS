@@ -31,7 +31,9 @@
 				<c:forEach var="movieInfo" items="${movieInfo }">
 				<div class="col-sm-6 col-md-4" style="padding:10px;">
 			    	<div class="thumbnail">
-			      	<img src="./static/images/iu.jpg" alt="영화 포스터">
+			    	<c:forEach var="poster" items="${movieInfo.poster }" begin="0" end="1">
+			      		<img src="${poster.pictureURL}" alt="${poster.pictureName}" style="height:500px;">
+			      	</c:forEach>
 			      	<div class="caption">
 				      	<div class="list-group">
 						 	<a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq}" class="list-group-item">
@@ -44,9 +46,8 @@
 				        <p><div class="span3"><b>상영시간</div> : </b>${movieInfo.playTime}</p>
 				        <p><div class="span3"><b>개봉일</div> : </b>${movieInfo.openDate}</p>
 				        <p><div class="span3"><b>감독</div> : </b><c:forEach var="director" items="${movieInfo.director }">${director.name} </c:forEach></p>
-				        <p><div class="span3"><b>출연진</div> : </b><c:forEach var="actor" items="${movieInfo.actor }">${actor.name} (${actor.role }) </c:forEach></p>
+				        <p><div class="span3"><b>출연진</div> : </b><c:forEach var="actor" items="${movieInfo.actor }" begin="0" end="2">${actor.name} (${actor.role }) </c:forEach></p>
 				        <p><div class="span3"><b>등급</div> : </b>${movieInfo.rate}</p>
-				        
 				        
 				        <p><a href="/reserv/reserv.do" class="btn btn-primary">예매 하기</a> <a href="#" class="btn btn-default">예고편 보기</a></p>
 			      	</div>

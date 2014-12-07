@@ -155,4 +155,16 @@
 
 	</select>
 	
+	<select id="getMoviePoster" resultType="Picture">
+		SELECT
+				PICTURE_NAME as 'pictureName'
+			,	PICTURE_CODE as 'pictureCode'
+			,	PICTURE_URL as 'pictureURL'
+			
+		FROM	admin.MOVIE_PICTURE
+		WHERE	admin.MOVIE_PICTURE.MOVIE_SEQ = #{movieSeq} 
+		AND		admin.MOVIE_PICTURE.PICTURE_CODE = 1
+
+	</select>
+	
 </mapper>

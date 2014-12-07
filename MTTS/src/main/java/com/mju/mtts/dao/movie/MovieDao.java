@@ -22,4 +22,5 @@ public interface MovieDao {
 	List<Staff> getMovieDirector(Movie param);
 	
 	List<Picture> getMoviePicture(Movie param);
+	List<Picture> getMoviePoster(Movie param);
 }
