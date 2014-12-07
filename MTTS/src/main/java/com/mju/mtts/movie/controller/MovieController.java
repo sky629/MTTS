@@ -48,7 +48,6 @@ public class MovieController {
 		return "movie/home";
 
 	}
-	
 	@RequestMapping("/movie/home.do")
 	public String GenreMovie(
 			HttpServletRequest request,
@@ -63,7 +62,6 @@ public class MovieController {
 		mm.addAttribute("movieInfo", movieService.getGenreMovie(genreSeq, sortCode));
 		
 		return "movie/home";
-
 	}
 	
 	@RequestMapping("/movie/movieDetail.do")
@@ -89,9 +87,5 @@ public class MovieController {
 		}
 		
 		return "movie/movieDetail";
-
 	}
-
-
-
 }
