@@ -1,9 +1,11 @@
 package com.mju.mtts.dao.movie;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.mju.mtts.vo.movie.Movie;
 import com.mju.mtts.vo.movie.Genre;
+import com.mju.mtts.vo.movie.Staff;
 
 public interface MovieDao {
 	
@@ -15,4 +17,7 @@ public interface MovieDao {
 	String getRate(String param);
 	
 	List<Movie> getGenreMovie(Movie param);
+	
+	List<Staff> getMovieActor(Movie param);
+	List<Staff> getMovieDirector(Movie param);
 }

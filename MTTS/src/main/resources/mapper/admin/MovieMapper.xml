@@ -111,4 +111,36 @@
 		WHERE	MOVIE_SEQ = #{movieSeq}
 	
 	</select>
+	
+	<select id="getMovieActor" resultType="staff">
+		SELECT 
+				MOVIE_SEQ as 'movieSeq'
+			,	STAFF_SEQ as 'staffSeq'
+			,	STAFF_NAME as 'name'
+			,	BIRTHDATE as 'birthDate'
+			,	BIRTHLEGION as 'birthLegion'
+			,	PROFILE	as 'profile'
+			,	ROLE as 'role'
+		
+		FROM	admin.STAFF natural join admin.MOVIE_PRODUCE
+		WHERE	admin.MOVIE_PRODUCE.MOVIE_SEQ = #{movieSeq}
+			AND
+				admin.MOVIE_PRODUCE.JOB_CODE IN (12,13)
+	</select>
+	
+	<select id="getMovieDirector" resultType="staff">
+		SELECT 
+				MOVIE_SEQ as 'movieSeq'
+			,	STAFF_SEQ as 'staffSeq'
+			,	STAFF_NAME as 'name'
+			,	BIRTHDATE as 'birthDate'
+			,	BIRTHLEGION as 'birthLegion'
+			,	PROFILE	as 'profile'
+			,	ROLE as 'role'
+		
+		FROM	admin.STAFF natural join admin.MOVIE_PRODUCE
+		WHERE	admin.MOVIE_PRODUCE.MOVIE_SEQ = #{movieSeq}
+			AND
+				admin.MOVIE_PRODUCE.JOB_CODE IN (10)
+	</select>
 </mapper>

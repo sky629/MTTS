@@ -43,8 +43,8 @@
 				        <p><div class="span3"><b>국가</div> : </b><c:forEach var="country" items="${movieInfo.country }">${country} </c:forEach></p>
 				        <p><div class="span3"><b>상영시간</div> : </b>${movieInfo.playTime}</p>
 				        <p><div class="span3"><b>개봉일</div> : </b>${movieInfo.openDate}</p>
-				        <p><div class="span3"><b>감독</div> : </b>${movieInfo.openDate}</p>
-				        <p><div class="span3"><b>출연진</div> : </b>${movieInfo.openDate}</p>
+				        <p><div class="span3"><b>감독</div> : </b><c:forEach var="director" items="${movieInfo.director }">${director.name} </c:forEach></p>
+				        <p><div class="span3"><b>출연진</div> : </b><c:forEach var="actor" items="${movieInfo.actor }">${actor.name} (${actor.role }) </c:forEach></p>
 				        <p><div class="span3"><b>등급</div> : </b>${movieInfo.rate}</p>
 				        
 				        

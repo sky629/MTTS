@@ -5,19 +5,19 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.mju.mtts.dao.movie.MovieDao;
 import com.mju.mtts.movie.service.MovieService;
 import com.mju.mtts.vo.movie.Genre;
 import com.mju.mtts.vo.movie.Movie;
+import com.mju.mtts.vo.movie.Staff;
 
 @Service("MovieService")
 public class MovieServiceImpl implements MovieService {
 
 	@Autowired
 	private MovieDao movieDao;
-
+	
 	@Override
 	public List<Movie> getMovieAll(String movieSeq, String sortCode) {
 		Movie param = new Movie();
@@ -32,6 +32,8 @@ public class MovieServiceImpl implements MovieService {
 			temp.get(i).setGenre(getGenre(movieDao.selectAll(param).get(i).getMovieSeq())); 
 			temp.get(i).setRate(getRate(movieDao.selectAll(param).get(i).getMovieSeq()));
 			temp.get(i).setCountry(getCountry(movieDao.selectAll(param).get(i).getMovieSeq()));
+			temp.get(i).setActor(getMovieActor(movieDao.selectAll(param).get(i).getMovieSeq()));
+			temp.get(i).setDirector(getMovieDirector(movieDao.selectAll(param).get(i).getMovieSeq()));
 		}
 		
 		return temp;
@@ -88,5 +90,21 @@ public class MovieServiceImpl implements MovieService {
 		}
 		
 		return temp;
+	}
+
+	@Override
+	public List<Staff> getMovieActor(String movieSeq) {
+		Movie param = new Movie();
+		param.setMovieSeq(movieSeq);
+		
+		return movieDao.getMovieActor(param);
+	}
+
+	@Override
+	public List<Staff> getMovieDirector(String movieSeq) {
+		Movie param = new Movie();
+		param.setMovieSeq(movieSeq);
+		
+		return movieDao.getMovieDirector(param);
 	}
 }
