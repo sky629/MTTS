@@ -1,0 +1,46 @@
+
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+.sidebar-nav {
+	padding: 9px 0;
+}
+#wrap {
+	width:960px; margin:0 auto; position:relative;
+	text-decoration:none;
+}
+li{list-style:none;}
+
+.reserv	{
+	position:relative; border:1px solid #000;
+	height:600px;
+	float:left;
+}
+#left	{
+	width:665px;
+}
+#right	{
+	width:280px;
+}
+
+.reserv_nav	{
+	height:30px; background-color:#feeccd; text-align:center;
+}
+
+.reserv_menu	{
+	float:left; width:210px; border:2px solid #000;
+	height:250px;  margin:5px;
+}
+
+#reserv_second_row	{
+	clear:both;
+}
+#screen_select	{
+	float:left; width:390px; border:2px solid #000; margin:5px;
+}
+#member_select	{
+	float:left; width:250px; border:2px solid #000;
+	height:200px;
+	margin:5px;
+}

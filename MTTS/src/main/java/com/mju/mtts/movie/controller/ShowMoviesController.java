@@ -36,7 +36,9 @@ public class ShowMoviesController {
 			ModelMap model,
 			@RequestParam(value = "theaterSeq", required = false) String theaterSeq,
 			@RequestParam(value = "movieSeq", required = false) String movieSeq,
-			@RequestParam(value = "showDate", required = false) String showDate
+			@RequestParam(value = "showDate", required = false) String showDate,
+			
+			@RequestParam(value = "Rdata", required = false) String Rdata
 			){
 		
 		model.addAttribute("showMovie", showMovieService.getShowMovieAll());
@@ -49,7 +51,7 @@ public class ShowMoviesController {
 		model.addAttribute("ts", theaterSeq);
 		
 		
-		System.out.println(movieSeq);
+		System.out.println(Rdata);
 		
 		return "reserv/reserv";
 	}

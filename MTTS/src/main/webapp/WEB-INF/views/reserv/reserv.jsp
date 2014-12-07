@@ -100,10 +100,10 @@
 					<p class="reserv_nav_span">예매 정보</p>
 				</div>
 				
-				<form action="" method="post">
+				<form action="/reserv/reserv.do" method="post">
+					<input type="hidden" value="sample" id="Rdata"/>
 					
-					
-					<input type="submit" value="예매하기"/>
+					<input type="submit" value="예매하기" id="reserv_btn"/>
 				</form>
 				
 		</div>
