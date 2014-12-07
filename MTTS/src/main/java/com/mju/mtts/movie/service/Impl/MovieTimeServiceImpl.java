@@ -19,7 +19,14 @@ public class MovieTimeServiceImpl implements MovieTimeService {
 	@Override
 	public List<MovieTime> getMovieTimeAll(String theaterSeq, String movieSeq, String showDate) {
 		// TODO Auto-generated method stub
-		return movieTimeDao.selectAll(theaterSeq, movieSeq, showDate);
+		return movieTimeDao.selectTimeAll(theaterSeq, movieSeq, showDate);
+	}
+
+	@Override
+	public List<MovieTime> getMovieScreenAll(String theaterSeq,
+			String movieSeq, String showDate) {
+		// TODO Auto-generated method stub
+		return movieTimeDao.selectScreenAll(theaterSeq, movieSeq, showDate);
 	}
 
 }

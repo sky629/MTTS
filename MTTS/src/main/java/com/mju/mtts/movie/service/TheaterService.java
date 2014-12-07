@@ -5,6 +5,6 @@ import java.util.List;
 import com.mju.mtts.vo.movie.Theater;
 
 public interface TheaterService {
-	List<Theater> getTheaterAll(String theaterSeq);
+	List<Theater> getTheaterAll(String movieSeq);
 
 }

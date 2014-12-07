@@ -2,15 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mju.mtts.dao.movie.MovieTimeDao">
 
-	<select id="selectAll" resultType="movieTime">
+	<select id="selectTimeAll" resultType="movieTime">
 	
 		SELECT
 				s.SCREEN_SEQ as 'screenSeq'
 			,	s.SCREEN_NAME as 'screenName'
 			,	t.SHOWTIME_SEQ as 'showTimeSeq'
 			,	t.SHOWDATE as 'showDate'
-			,	t.SHOWTIME as 'showTime'
+			,	TIME_FORMAT(t.SHOWTIME, '%H:%I') as 'showTime'
 			,	t.MOVIE_SEQ as 'movieSeq'
+			
+		FROM	admin.SCREEN s, admin.SHOWTIMETABLE t
+	
+		WHERE
+				s.SCREEN_SEQ = t.SCREEN_SEQ	AND
+                s.THEATER_SEQ = t.THEATER_SEQ AND
+                
+				t.THEATER_SEQ = #{0}	AND
+				t.MOVIE_SEQ = #{1}		AND
+				t.SHOWDATE = #{2}
+		
+	</select>
+	
+	<select id="selectScreenAll" resultType="movieTime">
+	
+		SELECT DISTINCT
+				s.SCREEN_SEQ as 'screenSeq'
+			,	s.SCREEN_NAME as 'screenName'
 			
 		FROM	admin.SCREEN s, admin.SHOWTIMETABLE t
 	

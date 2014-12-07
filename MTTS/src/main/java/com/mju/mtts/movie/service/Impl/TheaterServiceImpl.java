@@ -16,9 +16,9 @@ public class TheaterServiceImpl implements TheaterService {
 	private TheaterDao theaterDao;
 
 	@Override
-	public List<Theater> getTheaterAll(String theaterSeq) {
+	public List<Theater> getTheaterAll(String movieSeq) {
 
-		return theaterDao.selectAll(theaterSeq);
+		return theaterDao.selectAll(movieSeq);
 	}
 
 }

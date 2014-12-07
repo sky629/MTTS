@@ -40,8 +40,9 @@ public class ShowMoviesController {
 			){
 		
 		model.addAttribute("showMovie", showMovieService.getShowMovieAll());
-		model.addAttribute("theater", theaterServie.getTheaterAll(theaterSeq));
+		model.addAttribute("theater", theaterServie.getTheaterAll(movieSeq));
 		model.addAttribute("movieTime", MovieTimeService.getMovieTimeAll(theaterSeq, movieSeq, showDate));
+		model.addAttribute("movieScreen", MovieTimeService.getMovieScreenAll(theaterSeq, movieSeq, showDate));
 		model.addAttribute("seatInfo", seatInfoService.getSeatInfoAll());
 		
 		model.addAttribute("ms", movieSeq);

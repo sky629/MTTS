@@ -3,11 +3,15 @@
 <mapper namespace="com.mju.mtts.dao.movie.TheaterDao">
 
 	<select id="selectAll" resultType="theater">
-		SELECT
-			THEATER_SEQ as 'theaterSeq'
-		,	THEATER_NAME as 'theaterName'
-		FROM
-			admin.THEATER
-			WHERE THEATER_SEQ = #{theaterSeq}
+		SELECT DISTINCT
+			t.THEATER_SEQ as 'theaterSeq'
+		,	t.THEATER_NAME as 'theaterName'
+		,	s.MOVIE_SEQ as 'movieSeq'
+        
+        FROM
+			admin.THEATER t, admin.SHOWMOVIE s
+		WHERE
+			t.THEATER_SEQ = s.THEATER_SEQ	AND
+            s.MOVIE_SEQ = #{movieSeq};
 	</select>
 </mapper>

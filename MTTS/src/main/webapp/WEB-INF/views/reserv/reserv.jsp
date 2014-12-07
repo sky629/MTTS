@@ -30,7 +30,7 @@
 					<p class="reserv_nav_span">영화 선택</p>
 				</div>
 				<c:forEach var="showMovieV" items="${showMovie }">
-					<li><a href="/reserv/reserv.do?theaterSeq=${showMovieV.theaterSeq }&movieSeq=${showMovieV.movieSeq}">${showMovieV.title }</a></li>
+					<li><a href="/reserv/reserv.do?movieSeq=${showMovieV.movieSeq}">${showMovieV.title }</a></li>
 				</c:forEach>
 			</div>
 		
@@ -39,8 +39,6 @@
 					<p class="reserv_nav_span">영화관 선택</p>
 				</div>
 				<c:forEach var="theater" items="${theater }">
-					
-					
 					<li><a href="/reserv/reserv.do?theaterSeq=${theater.theaterSeq }&movieSeq=${ms }">${theater.theaterName }</a></li>
 				</c:forEach>
 			</div>
@@ -62,14 +60,24 @@
 					<div class="reserv_nav">
 						<p class="reserv_nav_span">상영관 / 시간 선택</p>
 					</div>
-					<c:forEach var="movieTimeS" items="${movieTime}">
-						<ul>
-							<li>${movieTimeS.screenName }</li>
+					<div id="mTS">
+						<c:forEach var="movieS" items="${movieScreen}">
 							<ul>
-								<li>${movieTimeS.showTime }</li>
+								<li id="mScreen">${movieS.screenName }</li>
+								<ul>
+									<c:forEach var="movieT" items="${movieTime}">
+										<c:if test="${movieS.screenSeq == movieT.screenSeq }">
+											<li id="mTime">
+											<a href="#">
+												${movieT.showTime }
+											</a>
+											</li>
+										</c:if>
+									</c:forEach>
+								</ul>
 							</ul>
-						</ul>
-					</c:forEach>
+						</c:forEach>
+					</div>
 				</div>
 				
 				<div id="member_select">
@@ -94,6 +102,8 @@
 				
 				<form action="" method="post">
 					
+					
+					<input type="submit" value="예매하기"/>
 				</form>
 				
 		</div>

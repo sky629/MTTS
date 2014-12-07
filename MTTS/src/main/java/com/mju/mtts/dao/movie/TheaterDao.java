@@ -5,5 +5,5 @@ import java.util.List;
 import com.mju.mtts.vo.movie.Theater;
 
 public interface TheaterDao {
-	List<Theater> selectAll(String theaterSeq);
+	List<Theater> selectAll(String movieSeq);
 }
