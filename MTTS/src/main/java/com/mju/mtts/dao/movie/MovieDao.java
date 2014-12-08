@@ -7,6 +7,7 @@ import com.mju.mtts.vo.movie.Movie;
 import com.mju.mtts.vo.movie.Picture;
 import com.mju.mtts.vo.movie.Review;
 import com.mju.mtts.vo.movie.Staff;
+import com.mju.mtts.vo.movie.Video;
 
 public interface MovieDao {
 	
@@ -26,4 +27,5 @@ public interface MovieDao {
 	List<Picture> getMoviePoster(Movie param);
 	
 	List<Review> getMovieReview(Movie param);
+	List<Video> getMovieVideo(Movie param);
 }

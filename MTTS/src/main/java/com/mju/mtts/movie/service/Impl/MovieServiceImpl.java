@@ -13,6 +13,7 @@ import com.mju.mtts.vo.movie.Movie;
 import com.mju.mtts.vo.movie.Picture;
 import com.mju.mtts.vo.movie.Review;
 import com.mju.mtts.vo.movie.Staff;
+import com.mju.mtts.vo.movie.Video;
 
 @Service("MovieService")
 public class MovieServiceImpl implements MovieService {
@@ -133,5 +134,12 @@ public class MovieServiceImpl implements MovieService {
 		Movie param = new Movie();
 		param.setMovieSeq(movieSeq);
 		return movieDao.getMovieReview(param);
+	}
+
+	@Override
+	public List<Video> getMovieVideo(String movieSeq) {
+		Movie param = new Movie();
+		param.setMovieSeq(movieSeq);
+		return movieDao.getMovieVideo(param);
 	}
 }

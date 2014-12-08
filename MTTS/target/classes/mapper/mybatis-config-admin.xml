@@ -27,6 +27,8 @@
 		<typeAlias alias="seatInfo" type="com.mju.mtts.vo.movie.SeatInfo" />
 		<typeAlias alias="picture" type="com.mju.mtts.vo.movie.Picture" />
 		<typeAlias alias="review" type="com.mju.mtts.vo.movie.Review" />
+		<typeAlias alias="video" type="com.mju.mtts.vo.movie.Video" />
+		
 
 	</typeAliases>
 

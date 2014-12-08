@@ -7,6 +7,7 @@ import com.mju.mtts.vo.movie.Movie;
 import com.mju.mtts.vo.movie.Picture;
 import com.mju.mtts.vo.movie.Review;
 import com.mju.mtts.vo.movie.Staff;
+import com.mju.mtts.vo.movie.Video;
 
 public interface MovieService {
 	//모든 영화나 선택한 영화의 정보를 뽑아낸다
@@ -26,4 +27,5 @@ public interface MovieService {
 	List<Picture> getMoviePoster(String movieSeq);
 	
 	List<Review> getMovieReview(String movieSeq);
+	List<Video> getMovieVideo(String movieSeq);
 }

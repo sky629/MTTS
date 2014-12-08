@@ -5,17 +5,14 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<link href="../static/css/bootstrap.css" rel="stylesheet">
-<link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
-<link href="../static/manager/body.css" rel="stylesheet">
-<script type="text/javascript" src=./resources/js/html5gallery/jquery.js"></script>
-<script type="text/javascript" src="./resources/js/html5gallery/html5gallery.js"></script>
 
 </head>
 <body>
 
-	<div style="display:none;" class="html5gallery" data-skin="light" data-width="480" data-height="272">
-    	<a href="http://www.youtube.com/embed/YE7VzlLtp-4"><img src="http://img.youtube.com/vi/YE7VzlLtp-4/2.jpg" alt="Youtube Video"></a>
+	<div style="display:none;" class="html5gallery" data-skin="light" data-width="700" data-height="400">
+		<c:forEach var="video" items="${video}">
+    	<a href="${video.videoURL }"><img src="${video.videoPictureURL }" alt="${video.videoName }"></a>
+    	</c:forEach>
     </div>
 </body>
 </html>
