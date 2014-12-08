@@ -31,9 +31,7 @@
 				<c:forEach var="movieInfo" items="${movieInfo }">
 				<div class="col-sm-6 col-md-4" style="padding:10px;">
 			    	<div class="thumbnail">
-			    	<c:forEach var="poster" items="${movieInfo.poster }" begin="0" end="1">
-			      		<img src="${poster.pictureURL}" alt="${poster.pictureName}" style="height:500px;">
-			      	</c:forEach>
+			      		<img src="${movieInfo.poster[0].pictureURL}" alt="${movieInfo.poster[0].pictureName}" style="height:500px;">
 			      	<div class="caption">
 				      	<div class="list-group">
 						 	<a href="/movie/movieDetail.do?movieSeq=${movieInfo.movieSeq}" class="list-group-item">

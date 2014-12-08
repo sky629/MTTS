@@ -80,7 +80,9 @@ public class MovieController {
 	
 		if(navCode != null){
 			mm.addAttribute("navCode", navCode);
-			System.out.println(movieSeq+","+navCode);
+			if(navCode.equals("grade")){
+				mm.addAttribute("grade",movieService.getMovieReview(movieSeq));
+			}
 		}else{
 			mm.addAttribute("navCode","synopsis");
 		}

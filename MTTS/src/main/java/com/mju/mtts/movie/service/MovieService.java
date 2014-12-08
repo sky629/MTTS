@@ -5,6 +5,7 @@ import java.util.List;
 import com.mju.mtts.vo.movie.Genre;
 import com.mju.mtts.vo.movie.Movie;
 import com.mju.mtts.vo.movie.Picture;
+import com.mju.mtts.vo.movie.Review;
 import com.mju.mtts.vo.movie.Staff;
 
 public interface MovieService {
@@ -24,4 +25,5 @@ public interface MovieService {
 	List<Picture> getMoviePicture(String movieSeq);
 	List<Picture> getMoviePoster(String movieSeq);
 	
+	List<Review> getMovieReview(String movieSeq);
 }

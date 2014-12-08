@@ -167,4 +167,17 @@
 
 	</select>
 	
+	<select id="getMovieReview" resultType="Review">
+		SELECT
+				REVIEW_SEQ as 'reviewSeq'
+			,	GRADE as 'grade'
+			,	REVIEW as 'review'
+			,	CREATE_DATE as 'createDate'
+			,	WRITER as 'writer'
+			,	PWD as 'pwd'
+		
+		FROM	admin.MOVIE_REVIEW
+		WHERE	MOVIE_SEQ = #{movieSeq }
+	
+	</select>
 </mapper>

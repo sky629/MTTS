@@ -5,6 +5,7 @@ import java.util.List;
 import com.mju.mtts.vo.movie.Genre;
 import com.mju.mtts.vo.movie.Movie;
 import com.mju.mtts.vo.movie.Picture;
+import com.mju.mtts.vo.movie.Review;
 import com.mju.mtts.vo.movie.Staff;
 
 public interface MovieDao {
@@ -23,4 +24,6 @@ public interface MovieDao {
 	
 	List<Picture> getMoviePicture(Movie param);
 	List<Picture> getMoviePoster(Movie param);
+	
+	List<Review> getMovieReview(Movie param);
 }

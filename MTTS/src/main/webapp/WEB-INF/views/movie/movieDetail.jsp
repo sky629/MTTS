@@ -33,7 +33,7 @@
 					</div>
 					<div class="col-md-3"
 						style="padding: 0 0 0 25px; min-width: 150px; min-height: 300px; max-height: 400px;">
-						<img alt="포스터 사진" src="http://movie.phinf.naver.net/20141021_17/14138540655417EjQ6_JPEG/movie_image.jpg" height="400px"></div>
+						<img alt="포스터 사진" src="${movieInfo.poster[0].pictureURL }" height="400px"></div>
 				</div>
 				<br/>
 				<div class="row" >
@@ -148,7 +148,9 @@
 						</div>
 					</c:when>
 					<c:when test="${navCode  == 'grade'}">
-						평점/리뷰
+						<div>
+							<jsp:include page="./movieGrade.jsp"></jsp:include>
+						</div>
 					</c:when>
 					<c:when test="${navCode  == 'timeTable'}">
 						상영시간표
