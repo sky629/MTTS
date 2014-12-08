@@ -17,7 +17,7 @@
 <body>
 	<div style="margin:auto;">
 		<div class="fotorama" data-width="700" data-ratio="700/467" data-max-width="100%">
-	  		<c:forEach var="picture" items="#{picture }">
+	  		<c:forEach var="picture" items="#{movieInfo.picture }">
 	  			<img alt="${picture.pictureName }" src="${picture.pictureURL }">
 	  			${picture.pictureName }
 	  		</c:forEach>

@@ -39,8 +39,19 @@ li{list-style:none;}
 #screen_select	{
 	float:left; width:390px; border:2px solid #000; margin:5px;
 }
+#mTS	{
+	
+}
+#mScreen	{
+	margin-right:10px; float:left; clear:both;
+	border:1px solid #000; width:60px;
+}
+#mTime	{
+	float:left; margin-left:10px;
+}
 #member_select	{
 	float:left; width:250px; border:2px solid #000;
 	height:200px;
 	margin:5px;
 }
+#fontc	{color:red;}

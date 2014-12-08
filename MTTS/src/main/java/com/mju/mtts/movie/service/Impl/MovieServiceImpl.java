@@ -88,6 +88,10 @@ public class MovieServiceImpl implements MovieService {
 			temp.get(i).setGenre(getGenre(movieDao.getGenreMovie(param).get(i).getMovieSeq())); 
 			temp.get(i).setRate(getRate(movieDao.getGenreMovie(param).get(i).getMovieSeq()));
 			temp.get(i).setCountry(getCountry(movieDao.getGenreMovie(param).get(i).getMovieSeq()));
+			temp.get(i).setActor(getMovieActor(movieDao.selectAll(param).get(i).getMovieSeq()));
+			temp.get(i).setDirector(getMovieDirector(movieDao.selectAll(param).get(i).getMovieSeq()));
+			temp.get(i).setPicture(getMoviePicture(movieDao.selectAll(param).get(i).getMovieSeq()));
+			temp.get(i).setPoster(getMoviePoster(movieDao.selectAll(param).get(i).getMovieSeq()));
 		}
 		
 		return temp;
