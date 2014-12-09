@@ -103,31 +103,6 @@
 					</nav>
 				</div>
 				<div class="row">
-				
-				<span><h1>
-				<c:choose>
-					<c:when test="${navCode  == 'synopsis'}">
-						${movieIfo.synopsis }
-					</c:when>
-					<c:when test="${navCode  == 'staff'}">
-						배우/제작진
-					</c:when>
-					<c:when test="${navCode  == 'picture'}">
-						사진
-					</c:when>
-					<c:when test="${navCode  == 'video'}">
-						동영상
-					</c:when>
-					<c:when test="${navCode  == 'grade'}">
-						${movieInfo.grade }
-					</c:when>
-					<c:when test="${navCode  == 'timeTable'}">
-						상영시간표
-					</c:when>
-					<c:when test="${navCode  == 'fameLine'}">
-						명대사
-					</c:when>
-				</c:choose></h1></span>
 				<hr>
 				<c:choose>
 					<c:when test="${navCode  == 'synopsis'}">
@@ -159,7 +134,6 @@
 					</c:when>
 					<c:when test="${navCode  == 'fameLine'}">
 						<div>
-						명대사
 							<jsp:include page="./movieFameLine.jsp"></jsp:include>
 						</div>
 					</c:when>

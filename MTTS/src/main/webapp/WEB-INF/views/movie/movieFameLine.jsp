@@ -9,12 +9,13 @@
 </head>
 <body>
 	<div class="row marketing">
-		<c:forEach var="grade" items="${grade }">
+		<c:forEach var="fameLine" items="${fameLine }">
 			<div class="col-lg-4" style="border: #fff solid 1px; background-color:#eee; border-radius:5px;">
-				<div><h4><b>${grade.review }</b></h4></div>
-				<p><div class="rateit" data-rateit-value=${(grade.grade)/2 } data-rateit-ispreset="true" data-rateit-readonly="true"></div>${grade.grade }</p>
-				<p>${grade.writer }</p>
-				<p style="font-size:8px;">${grade.createDate }</p>
+				<div><h4><b>${fameLine.staffName }</b></h4></div>
+				<p>작성자 : ${fameLine.writer}</p>
+				<p>명대사 : ${fameLine.fameLine }</p>
+				<p>추천수 : ${fameLine.recommend }</p>
+				<p style="font-size:8px;">작성날짜 : ${fameLine.createDate }</p>
 			</div>
 		</c:forEach>
 	</div>

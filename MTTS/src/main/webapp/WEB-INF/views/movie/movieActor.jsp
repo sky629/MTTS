@@ -18,7 +18,7 @@
 		<c:forEach var="actor" items="${movieInfo.actor}">
 			<div class="col-sm-6 col-md-4" style="padding:10px;">
 		    	<div class="thumbnail">
-			      	<img src="http://tv03.search.naver.net/nhnsvc?size=120x150&quality=9&q=http://sstatic.naver.net/people/146/201410291637047751.jpg" alt="영화 포스터">
+			      	<img src="${actor.pictureURL }" alt="영화 포스터">
 				    <div class="caption">
 					   	<div class="list-group">
 		   					<h3>${actor.name}</h3>
@@ -41,7 +41,7 @@
 		<c:forEach var="director" items="${movieInfo.director}">
 			<div class="col-sm-6 col-md-4" style="padding:10px;">
 		    	<div class="thumbnail">
-			      	<img src="http://tv03.search.naver.net/nhnsvc?size=120x150&quality=9&q=http://sstatic.naver.net/people/146/201410291637047751.jpg" alt="영화 포스터">
+			      	<img src="${director.pictureURL }" alt="영화 포스터">
 				    <div class="caption">
 					   	<div class="list-group">
 		   					<h3>${director.name}</h3>

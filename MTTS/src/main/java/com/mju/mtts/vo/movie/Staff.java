@@ -7,6 +7,7 @@ public class Staff {
 	private String birthLegion;
 	private String profile;
 	private String role;
+	private String pictureURL;
 	
 	public String getStaffSeq() {
 		return staffSeq;
@@ -43,5 +44,11 @@ public class Staff {
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public String getPictureURL() {
+		return pictureURL;
+	}
+	public void setPictureURL(String pictureURL) {
+		this.pictureURL = pictureURL;
 	}
 }

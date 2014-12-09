@@ -2,11 +2,11 @@ package com.mju.mtts.vo.movie;
 
 public class FameLine {
 	private String fameLineSeq;
+	private String staffName;
 	private String fameLine;
 	private String writer;
 	private String recommend;
 	private String createDate;
-	private String pwd;
 	
 	public String getFameLineSeq() {
 		return fameLineSeq;
@@ -38,10 +38,10 @@ public class FameLine {
 	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
 	}
-	public String getPwd() {
-		return pwd;
+	public String getStaffName() {
+		return staffName;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
 	}
 }
