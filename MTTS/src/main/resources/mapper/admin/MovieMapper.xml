@@ -191,4 +191,12 @@
 		FROM	admin.MOVIE_VIDEO
 		WHERE	MOVIE_SEQ = #{movieSeq }
 	</select>
+	
+	<select id="getMovieFameLine" resultType="fameLine">
+		SELECT
+				FAME_LINE_SEQ as 'fameLineSeq'
+			,	STAFF_SEQ as 'staffSeq'
+			
+	
+	</select>
 </mapper>
