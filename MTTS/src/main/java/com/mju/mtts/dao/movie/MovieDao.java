@@ -29,5 +29,6 @@ public interface MovieDao {
 	
 	List<Review> getMovieReview(Movie param);
 	List<Video> getMovieVideo(Movie param);
+
 	List<FameLine> getMovieFameLine(Movie param);
 }

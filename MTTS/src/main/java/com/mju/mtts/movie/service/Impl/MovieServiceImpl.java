@@ -143,7 +143,6 @@ public class MovieServiceImpl implements MovieService {
 		param.setMovieSeq(movieSeq);
 		return movieDao.getMovieVideo(param);
 	}
-	
 	@Override
 	public List<FameLine> getMovieFameLine(String movieSeq) {
 		Movie param = new Movie();
@@ -151,5 +150,4 @@ public class MovieServiceImpl implements MovieService {
 		
 		return movieDao.getMovieFameLine(param);
 	}
-
 }
