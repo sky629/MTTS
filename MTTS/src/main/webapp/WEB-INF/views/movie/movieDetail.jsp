@@ -10,6 +10,8 @@
 <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
 <link href="../static/manager/body.css" rel="stylesheet">
 <link href="../resources/js/rateit/rateit.css" rel="stylesheet">
+<script type="text/javascript" src=../resources/js/html5gallery/jquery.js"></script>
+<script type="text/javascript" src="../resources/js/html5gallery/html5gallery.js"></script>
 </head>
 <body style="font-family: 나눔고딕, NanumGothic, ngeot, 돋움, DotumChe, Dotum">
 	<jsp:include page="../common/header.jsp"></jsp:include>
@@ -143,7 +145,7 @@
 						</div>
 					</c:when>
 					<c:when test="${navCode  == 'video'}">
-						<div align="center">
+						<div>
 							<jsp:include page="./movieVideo.jsp"></jsp:include>
 						</div>
 					</c:when>
@@ -156,7 +158,10 @@
 						상영시간표
 					</c:when>
 					<c:when test="${navCode  == 'fameLine'}">
+						<div>
 						명대사
+							<jsp:include page="./movieFameLine.jsp"></jsp:include>
+						</div>
 					</c:when>
 				</c:choose>
 				</div>

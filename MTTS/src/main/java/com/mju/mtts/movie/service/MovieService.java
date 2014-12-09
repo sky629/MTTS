@@ -2,11 +2,13 @@ package com.mju.mtts.movie.service;
 
 import java.util.List;
 
+import com.mju.mtts.vo.movie.FameLine;
 import com.mju.mtts.vo.movie.Genre;
 import com.mju.mtts.vo.movie.Movie;
 import com.mju.mtts.vo.movie.Picture;
 import com.mju.mtts.vo.movie.Review;
 import com.mju.mtts.vo.movie.Staff;
+import com.mju.mtts.vo.movie.Video;
 
 public interface MovieService {
 	//모든 영화나 선택한 영화의 정보를 뽑아낸다
@@ -26,4 +28,7 @@ public interface MovieService {
 	List<Picture> getMoviePoster(String movieSeq);
 	
 	List<Review> getMovieReview(String movieSeq);
+	List<Video> getMovieVideo(String movieSeq);
+
+	List<FameLine> getMovieFameLine(String movieSeq);
 }

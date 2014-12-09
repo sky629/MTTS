@@ -83,6 +83,12 @@ public class MovieController {
 			if(navCode.equals("grade")){
 				mm.addAttribute("grade",movieService.getMovieReview(movieSeq));
 			}
+			else if(navCode.equals("video")){
+				mm.addAttribute("video",movieService.getMovieVideo(movieSeq));
+			}
+			else if(navCode.equals("fameLine")){
+				mm.addAttribute("fameLine", movieService.getMovieFameLine(movieSeq));
+			}
 		}else{
 			mm.addAttribute("navCode","synopsis");
 		}

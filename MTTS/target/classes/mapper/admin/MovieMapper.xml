@@ -144,7 +144,7 @@
 				admin.MOVIE_PRODUCE.JOB_CODE IN (10)
 	</select>
 	
-	<select id="getMoviePicture" resultType="Picture">
+	<select id="getMoviePicture" resultType="picture">
 		SELECT
 				PICTURE_NAME as 'pictureName'
 			,	PICTURE_CODE as 'pictureCode'
@@ -155,7 +155,7 @@
 
 	</select>
 	
-	<select id="getMoviePoster" resultType="Picture">
+	<select id="getMoviePoster" resultType="picture">
 		SELECT
 				PICTURE_NAME as 'pictureName'
 			,	PICTURE_CODE as 'pictureCode'
@@ -167,7 +167,7 @@
 
 	</select>
 	
-	<select id="getMovieReview" resultType="Review">
+	<select id="getMovieReview" resultType="review">
 		SELECT
 				REVIEW_SEQ as 'reviewSeq'
 			,	GRADE as 'grade'
@@ -179,5 +179,16 @@
 		FROM	admin.MOVIE_REVIEW
 		WHERE	MOVIE_SEQ = #{movieSeq }
 	
+	</select>
+	
+	<select id="getMovieVideo" resultType="video">
+		SELECT
+				VIDEO_CODE as 'videoCode'
+			,	VIDEO_NAME as 'videoName'
+			,	VIDEO_URL as 'videoURL'
+			,	VIDEO_PICTURE_URL as 'videoPictureURL'
+		
+		FROM	admin.MOVIE_VIDEO
+		WHERE	MOVIE_SEQ = #{movieSeq }
 	</select>
 </mapper>
