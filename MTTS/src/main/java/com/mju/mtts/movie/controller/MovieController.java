@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mju.mtts.movie.service.MovieService;
+import com.mju.mtts.movie.service.MovieTimeService;
 
 /**
  * Handles requests for the application home page.
@@ -64,13 +65,19 @@ public class MovieController {
 		return "movie/home";
 	}
 	
+	@Autowired
+	private MovieTimeService movieTimeService;
+	
 	@RequestMapping("/movie/movieDetail.do")
 	public String MovieDetail(
 			HttpServletRequest request,
 			HttpServletResponse response,
 			ModelMap mm,
 			@RequestParam(value = "movieSeq", required = false) String movieSeq,
-			@RequestParam(value = "navCode", required = false) String navCode) {
+			@RequestParam(value = "navCode", required = false) String navCode,
+			@RequestParam(value = "theaterSeq", required = false) String theaterSeq,
+			@RequestParam(value = "screenSeq", required = false) String screenSeq,
+			@RequestParam(value = "showDate", required = false) String showDate) {
 
 		logger.info("MovieHome");
 		
@@ -88,11 +95,12 @@ public class MovieController {
 			}
 			else if(navCode.equals("fameLine")){
 				mm.addAttribute("fameLine", movieService.getMovieFameLine(movieSeq));
-			}
+			}//else if(navCode.equals("timeTable")){
+				//mm.addAttribute("movieTime", movieTimeService.getMovieTimeAll(theaterSeq, movieSeq, showDate));
+			//} 구현 안됨
 		}else{
 			mm.addAttribute("navCode","synopsis");
 		}
-		
 		return "movie/movieDetail";
 	}
 }

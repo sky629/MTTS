@@ -130,7 +130,9 @@
 						</div>
 					</c:when>
 					<c:when test="${navCode  == 'timeTable'}">
-						상영시간표
+						<div>
+							<%--구현안됨 <jsp:include page="./movieTime.jsp"></jsp:include> --%>
+						</div>
 					</c:when>
 					<c:when test="${navCode  == 'fameLine'}">
 						<div>
