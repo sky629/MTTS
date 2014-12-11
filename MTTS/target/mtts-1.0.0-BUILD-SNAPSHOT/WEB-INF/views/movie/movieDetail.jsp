@@ -10,6 +10,8 @@
 <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
 <link href="../static/manager/body.css" rel="stylesheet">
 <link href="../resources/js/rateit/rateit.css" rel="stylesheet">
+<script type="text/javascript" src=../resources/js/html5gallery/jquery.js"></script>
+<script type="text/javascript" src="../resources/js/html5gallery/html5gallery.js"></script>
 </head>
 <body style="font-family: 나눔고딕, NanumGothic, ngeot, 돋움, DotumChe, Dotum">
 	<jsp:include page="../common/header.jsp"></jsp:include>
@@ -33,7 +35,7 @@
 					</div>
 					<div class="col-md-3"
 						style="padding: 0 0 0 25px; min-width: 150px; min-height: 300px; max-height: 400px;">
-						<img alt="포스터 사진" src="http://movie.phinf.naver.net/20141021_17/14138540655417EjQ6_JPEG/movie_image.jpg" height="400px"></div>
+						<img alt="포스터 사진" src="${movieInfo.poster[0].pictureURL }" height="400px"></div>
 				</div>
 				<br/>
 				<div class="row" >
@@ -101,31 +103,6 @@
 					</nav>
 				</div>
 				<div class="row">
-				
-				<span><h1>
-				<c:choose>
-					<c:when test="${navCode  == 'synopsis'}">
-						${movieIfo.synopsis }
-					</c:when>
-					<c:when test="${navCode  == 'staff'}">
-						배우/제작진
-					</c:when>
-					<c:when test="${navCode  == 'picture'}">
-						사진
-					</c:when>
-					<c:when test="${navCode  == 'video'}">
-						동영상
-					</c:when>
-					<c:when test="${navCode  == 'grade'}">
-						${movieInfo.grade }
-					</c:when>
-					<c:when test="${navCode  == 'timeTable'}">
-						상영시간표
-					</c:when>
-					<c:when test="${navCode  == 'fameLine'}">
-						명대사
-					</c:when>
-				</c:choose></h1></span>
 				<hr>
 				<c:choose>
 					<c:when test="${navCode  == 'synopsis'}">
@@ -143,18 +120,22 @@
 						</div>
 					</c:when>
 					<c:when test="${navCode  == 'video'}">
-						<div align="center">
+						<div>
 							<jsp:include page="./movieVideo.jsp"></jsp:include>
 						</div>
 					</c:when>
 					<c:when test="${navCode  == 'grade'}">
-						평점/리뷰
+						<div>
+							<jsp:include page="./movieGrade.jsp"></jsp:include>
+						</div>
 					</c:when>
 					<c:when test="${navCode  == 'timeTable'}">
 						상영시간표
 					</c:when>
 					<c:when test="${navCode  == 'fameLine'}">
-						명대사
+						<div>
+							<jsp:include page="./movieFameLine.jsp"></jsp:include>
+						</div>
 					</c:when>
 				</c:choose>
 				</div>

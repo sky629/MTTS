@@ -17,9 +17,9 @@ public class SeatInfoServiceImpl implements SeatInfoService {
 	private SeatInfoDao seatInfoDao;
 	
 	@Override
-	public List<SeatInfo> getSeatInfoAll() {
+	public List<SeatInfo> getSeatInfoAll(String showTimeSeq) {
 		// TODO Auto-generated method stub
-		return seatInfoDao.selectAll();
+		return seatInfoDao.selectAll(showTimeSeq);
 	}
 
 }

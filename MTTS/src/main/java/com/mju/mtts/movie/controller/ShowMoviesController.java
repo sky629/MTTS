@@ -1,18 +1,28 @@
 package com.mju.mtts.movie.controller;
 
+import java.io.PrintWriter;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mju.mtts.movie.service.MovieTimeService;
 import com.mju.mtts.movie.service.SeatInfoService;
 import com.mju.mtts.movie.service.ShowMovieService;
 import com.mju.mtts.movie.service.TheaterService;
+import com.mju.mtts.vo.movie.MovieTime;
+import com.mju.mtts.vo.movie.SeatInfo;
+import com.mju.mtts.vo.movie.ShowMovie;
+import com.mju.mtts.vo.movie.Theater;
 
 @Controller
 public class ShowMoviesController {
@@ -38,23 +48,80 @@ public class ShowMoviesController {
 			@RequestParam(value = "movieSeq", required = false) String movieSeq,
 			@RequestParam(value = "showDate", required = false) String showDate,
 			
-			@RequestParam(value = "Rdata", required = false) String Rdata
+			@RequestParam(value = "reservDate", required = false) String reservDate
 			){
 		
-		model.addAttribute("showMovie", showMovieService.getShowMovieAll());
-		model.addAttribute("theater", theaterServie.getTheaterAll(movieSeq));
-		model.addAttribute("movieTime", MovieTimeService.getMovieTimeAll(theaterSeq, movieSeq, showDate));
-		model.addAttribute("movieScreen", MovieTimeService.getMovieScreenAll(theaterSeq, movieSeq, showDate));
-		model.addAttribute("seatInfo", seatInfoService.getSeatInfoAll());
 		
-		model.addAttribute("ms", movieSeq);
-		model.addAttribute("ts", theaterSeq);
-		
-		
-		System.out.println(Rdata);
 		
 		return "reserv/reserv";
 	}
 	
+	@RequestMapping(value="/reserv/movieList", method=RequestMethod.POST)
+	public void movieList(HttpServletResponse resp) throws Exception {
+		List<ShowMovie> list=showMovieService.getShowMovieAll();
+		JSONObject jso=new JSONObject();    // JASON 객체생성
+		jso.put("data", list);
+		
+		resp.setContentType("text/html;charset=utf-8");
+		PrintWriter out=resp.getWriter();
+		out.print(jso.toString());        // out.print 내용을 ajax의 dataType이 jason인 놈에게 데이터 쏴줌
+		
+		System.out.println("movieList : " + jso);
+	}
+	
+	@RequestMapping(value="/reserv/theaterList", method=RequestMethod.POST)
+	public void theaterList(HttpServletResponse resp, String movieSeq) throws Exception {
+		List<Theater> list=theaterServie.getTheaterAll(movieSeq);
+		
+		JSONObject jso=new JSONObject();
+		jso.put("data", list);
+		
+		resp.setContentType("text/html;charset=utf-8");
+		PrintWriter out=resp.getWriter();
+		out.print(jso.toString());
+		
+		System.out.println("theaterList : " + jso);
+	}
+	
+	@RequestMapping(value="/reserv/dateList", method=RequestMethod.POST)
+	public void theaterList(HttpServletResponse resp, String movieSeq, String theaterSeq, String reservDate) throws Exception {
+		List<MovieTime> list=MovieTimeService.getMovieTimeAll(theaterSeq, movieSeq, reservDate);
+		JSONObject jso=new JSONObject();
+		jso.put("data", list);
+		
+		resp.setContentType("text/html;charset=utf-8");
+		PrintWriter out=resp.getWriter();
+		out.print(jso.toString());
+		
+		System.out.println("dateList : " + jso);
+	}
+	
+	@RequestMapping(value="/reserv/seatList", method=RequestMethod.POST)
+	public void seatList(HttpServletResponse resp, String showTimeSeq) throws Exception {
+		List<SeatInfo> list=seatInfoService.getSeatInfoAll(showTimeSeq);
+		JSONObject jso=new JSONObject();
+		jso.put("data", list);
+		
+		resp.setContentType("text/html;charset=utf-8");
+		PrintWriter out=resp.getWriter();
+		out.print(jso.toString());
+		
+		System.out.println("seatList : " + jso);
+	}
+	
+	
+	
+	/*@RequestMapping(value="/reserv/reservEnd", method=RequestMethod.POST)
+	public void reservEnd(HttpServletResponse resp, String movieSeq, String theaterSeq, String reservDate, String showTimeSeq, String reservSeat) throws Exception {
+		List<SeatInfo> list=seatInfoService.getSeatInfoAll(showTimeSeq);
+		JSONObject jso=new JSONObject();
+		jso.put("data", list);
+		
+		resp.setContentType("text/html;charset=utf-8");
+		PrintWriter out=resp.getWriter();
+		out.print(jso.toString());
+		
+		System.out.println("seatList : " + jso);
+	}*/
 
 }

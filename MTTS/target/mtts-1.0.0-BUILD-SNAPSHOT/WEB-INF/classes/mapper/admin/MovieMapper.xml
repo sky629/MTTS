@@ -113,38 +113,92 @@
 	</select>
 	
 	<select id="getMovieActor" resultType="staff">
-		SELECT 
-				MOVIE_SEQ as 'movieSeq'
-			,	STAFF_SEQ as 'staffSeq'
+		SELECT
+				L.STAFF_SEQ as 'staffSeq'
 			,	STAFF_NAME as 'name'
 			,	BIRTHDATE as 'birthDate'
-			,	BIRTHLEGION as 'birthLegion'
-			,	PROFILE	as 'profile'
+			,	BIRTHlEGION as 'birthLegion'
+			,	PROFILE as 'profile'
 			,	ROLE as 'role'
-		
-		FROM	admin.STAFF natural join admin.MOVIE_PRODUCE
-		WHERE	admin.MOVIE_PRODUCE.MOVIE_SEQ = #{movieSeq}
-			AND
-				admin.MOVIE_PRODUCE.JOB_CODE IN (12,13)
+			,	PICTURE_URL as 'pictureURL'
+	
+		FROM	STAFF L NATURAL JOIN
+				(SELECT
+						L.STAFF_SEQ
+					,	PICTURE_URL
+					,	ROLE 
+					
+				FROM 
+					(SELECT 
+							MOVIE_PRODUCE_SEQ
+						,	STAFF_SEQ
+						,	MOVIE_SEQ
+						,	ROLE 
+						
+					FROM	MOVIE_PRODUCE 
+					WHERE	MOVIE_SEQ=#{movieSeq} AND JOB_CODE IN (12,13)
+					) L
+					LEFT JOIN 
+					(SELECT 
+							MOVIEPICTURE_SEQ
+						,	STAFF_SEQ
+						,	MOVIE_SEQ
+						,	MOVIE_PRODUCE_SEQ
+						,	PICTURE_NAME
+						,	PICTURE_URL
+					
+					FROM	MOVIE_PICTURE
+					WHERE	PICTURE_CODE=2) R
+					ON L.MOVIE_PRODUCE_SEQ = R.MOVIE_PRODUCE_SEQ 
+					AND L.STAFF_SEQ = R.STAFF_SEQ 
+					AND L.MOVIE_SEQ = R.MOVIE_SEQ
+					)R
 	</select>
 	
 	<select id="getMovieDirector" resultType="staff">
-		SELECT 
-				MOVIE_SEQ as 'movieSeq'
-			,	STAFF_SEQ as 'staffSeq'
+		SELECT
+				L.STAFF_SEQ as 'staffSeq'
 			,	STAFF_NAME as 'name'
 			,	BIRTHDATE as 'birthDate'
-			,	BIRTHLEGION as 'birthLegion'
-			,	PROFILE	as 'profile'
+			,	BIRTHlEGION as 'birthLegion'
+			,	PROFILE as 'profile'
 			,	ROLE as 'role'
-		
-		FROM	admin.STAFF natural join admin.MOVIE_PRODUCE
-		WHERE	admin.MOVIE_PRODUCE.MOVIE_SEQ = #{movieSeq}
-			AND
-				admin.MOVIE_PRODUCE.JOB_CODE IN (10)
+			,	PICTURE_URL as 'pictureURL'
+	
+		FROM	STAFF L NATURAL JOIN
+				(SELECT
+						L.STAFF_SEQ
+					,	PICTURE_URL
+					,	ROLE 
+					
+				FROM 
+					(SELECT 
+							MOVIE_PRODUCE_SEQ
+						,	STAFF_SEQ
+						,	MOVIE_SEQ
+						,	ROLE 
+						
+					FROM	MOVIE_PRODUCE 
+					WHERE	MOVIE_SEQ=#{movieSeq} AND JOB_CODE IN (10)
+					) L
+					LEFT JOIN 
+					(SELECT 
+							MOVIEPICTURE_SEQ
+						,	STAFF_SEQ
+						,	MOVIE_SEQ
+						,	MOVIE_PRODUCE_SEQ
+						,	PICTURE_NAME
+						,	PICTURE_URL
+					
+					FROM	MOVIE_PICTURE
+					WHERE	PICTURE_CODE=2) R
+					ON L.MOVIE_PRODUCE_SEQ = R.MOVIE_PRODUCE_SEQ 
+					AND L.STAFF_SEQ = R.STAFF_SEQ 
+					AND L.MOVIE_SEQ = R.MOVIE_SEQ
+					)R
 	</select>
 	
-	<select id="getMoviePicture" resultType="Picture">
+	<select id="getMoviePicture" resultType="picture">
 		SELECT
 				PICTURE_NAME as 'pictureName'
 			,	PICTURE_CODE as 'pictureCode'
@@ -152,10 +206,11 @@
 			
 		FROM	admin.MOVIE_PICTURE
 		WHERE	admin.MOVIE_PICTURE.MOVIE_SEQ = #{movieSeq} 
+			AND	admin.MOVIE_PICTURE.PICTURE_CODE NOT IN (2)
 
 	</select>
 	
-	<select id="getMoviePoster" resultType="Picture">
+	<select id="getMoviePoster" resultType="picture">
 		SELECT
 				PICTURE_NAME as 'pictureName'
 			,	PICTURE_CODE as 'pictureCode'
@@ -167,4 +222,49 @@
 
 	</select>
 	
+	<select id="getMovieReview" resultType="review">
+		SELECT
+				REVIEW_SEQ as 'reviewSeq'
+			,	GRADE as 'grade'
+			,	REVIEW as 'review'
+			,	CREATE_DATE as 'createDate'
+			,	WRITER as 'writer'
+			,	PWD as 'pwd'
+		
+		FROM	admin.MOVIE_REVIEW
+		WHERE	MOVIE_SEQ = #{movieSeq }
+	
+	</select>
+	
+	<select id="getMovieVideo" resultType="video">
+		SELECT
+				VIDEO_CODE as 'videoCode'
+			,	VIDEO_NAME as 'videoName'
+			,	VIDEO_URL as 'videoURL'
+			,	VIDEO_PICTURE_URL as 'videoPictureURL'
+		
+		FROM	admin.MOVIE_VIDEO
+		WHERE	MOVIE_SEQ = #{movieSeq }
+	</select>
+	
+	<select id="getMovieFameLine" resultType="fameLine">
+		SELECT
+				FAME_LINE_SEQ as 'fameLineSeq'
+			,	STAFF_NAME as 'staffName'
+			,	FAME_LINE as 'fameLine'
+			,	WRITER as 'writer'
+			,	RECOMMEND as 'recommend'
+			,	CREATEDATE as 'createDate'
+	
+		FROM	STAFF NATURAL JOIN 
+				(SELECT
+						FAME_LINE_SEQ
+					,	STAFF_SEQ
+					,	FAME_LINE
+					,	WRITER
+					,	RECOMMEND
+					,	CREATEDATE
+				FROM	FAME_LINE
+				WHERE	MOVIE_SEQ = 1) a;
+	</select>
 </mapper>
