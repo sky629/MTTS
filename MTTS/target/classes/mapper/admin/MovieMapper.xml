@@ -124,7 +124,7 @@
 	
 		FROM	STAFF L NATURAL JOIN
 				(SELECT
-						STAFF_SEQ
+						L.STAFF_SEQ
 					,	PICTURE_URL
 					,	ROLE 
 					
@@ -138,7 +138,7 @@
 					FROM	MOVIE_PRODUCE 
 					WHERE	MOVIE_SEQ=#{movieSeq} AND JOB_CODE IN (12,13)
 					) L
-					NATURAL JOIN 
+					LEFT JOIN 
 					(SELECT 
 							MOVIEPICTURE_SEQ
 						,	STAFF_SEQ
@@ -149,7 +149,10 @@
 					
 					FROM	MOVIE_PICTURE
 					WHERE	PICTURE_CODE=2) R
-					)R;
+					ON L.MOVIE_PRODUCE_SEQ = R.MOVIE_PRODUCE_SEQ 
+					AND L.STAFF_SEQ = R.STAFF_SEQ 
+					AND L.MOVIE_SEQ = R.MOVIE_SEQ
+					)R
 	</select>
 	
 	<select id="getMovieDirector" resultType="staff">
@@ -164,7 +167,7 @@
 	
 		FROM	STAFF L NATURAL JOIN
 				(SELECT
-						STAFF_SEQ
+						L.STAFF_SEQ
 					,	PICTURE_URL
 					,	ROLE 
 					
@@ -178,7 +181,7 @@
 					FROM	MOVIE_PRODUCE 
 					WHERE	MOVIE_SEQ=#{movieSeq} AND JOB_CODE IN (10)
 					) L
-					NATURAL JOIN 
+					LEFT JOIN 
 					(SELECT 
 							MOVIEPICTURE_SEQ
 						,	STAFF_SEQ
@@ -189,7 +192,10 @@
 					
 					FROM	MOVIE_PICTURE
 					WHERE	PICTURE_CODE=2) R
-					)R;
+					ON L.MOVIE_PRODUCE_SEQ = R.MOVIE_PRODUCE_SEQ 
+					AND L.STAFF_SEQ = R.STAFF_SEQ 
+					AND L.MOVIE_SEQ = R.MOVIE_SEQ
+					)R
 	</select>
 	
 	<select id="getMoviePicture" resultType="picture">
@@ -200,6 +206,7 @@
 			
 		FROM	admin.MOVIE_PICTURE
 		WHERE	admin.MOVIE_PICTURE.MOVIE_SEQ = #{movieSeq} 
+			AND	admin.MOVIE_PICTURE.PICTURE_CODE NOT IN (2)
 
 	</select>
 	
