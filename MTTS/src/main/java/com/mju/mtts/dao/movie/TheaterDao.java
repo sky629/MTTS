@@ -6,4 +6,6 @@ import com.mju.mtts.vo.movie.Theater;
 
 public interface TheaterDao {
 	List<Theater> selectAll(String movieSeq);
+	
+	Theater selectTheater(Theater param);
 }

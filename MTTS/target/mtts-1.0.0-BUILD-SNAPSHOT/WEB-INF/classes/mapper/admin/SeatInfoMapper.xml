@@ -8,6 +8,20 @@
 
 		FROM
 			admin.SEAT_INFO
-			
+		WHERE
+			SHOWTIME_SEQ = #{0}
+		AND
+			SEAT_RESERV_TON = 0
 	</select>
+	
+	<update id="reservSeat">
+		UPDATE
+			UPDATE admin.SEAT_INFO
+		SET
+			SEAT_RESERV_TON = 1
+		WHERE 
+			SHOWTIME_SEQ = #{0}
+		AND 
+			SEAT_NUMBER = #{1}
+	</update>
 </mapper>

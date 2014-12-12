@@ -21,4 +21,21 @@ public class ReservInfoServiceImpl implements ReservInfoService{
 		return reservInfoDao.selectReservInfo(memberSeq);
 	}
 
+	@Override
+	public boolean setReservInfo(String theater, String screen,
+			String movie, String reservNum, String reservSeat, String showDate, String memberSeq) {
+		ReservInfo param = new ReservInfo();
+		param.setTheater(theater);
+		param.setScreen(screen);
+		param.setMovie(movie);
+		param.setReservNum(reservNum);
+		param.setSeatNumber(reservSeat);
+		param.setShowDate(showDate);
+		param.setMemberSeq(memberSeq);
+		
+		int flag = reservInfoDao.insertReservInfo(param);
+		
+		return flag >0 ? true : false;
+	}
+
 }

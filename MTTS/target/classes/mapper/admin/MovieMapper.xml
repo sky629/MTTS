@@ -269,13 +269,13 @@
 	</select>
 	
 	<update id="updateReservCnt">
-		UPDATE
-			UPDATE MOVIE
+		UPDATE 
+			admin.MOVIE
 		SET
-		<if test="state == plus">
+		<if test="param2 == 'plus'">
 			RESERV_COUNT = RESERV_COUNT + 1
 		</if>
-		<if test="state == minus">
+		<if test="param2 == 'minus'">
 			RESERV_COUNT = RESERV_COUNT - 1
 		</if>
 		WHERE 

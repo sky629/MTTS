@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mju.mtts.dao.movie.SeatInfoDao">
+<mapper namespace="com.mju.mtts.dao.movie.ReservInfoDao">
 
 	<select id="selectReservInfo" resultType="reservInfo">
 		SELECT
@@ -21,5 +21,14 @@
 				MEMBER_SEQ = #{0};
 	</select>
 
+	<insert id="insertReservInfo">
+		INSERT 	
+				INTO RESERV_INFO (
+  				THEATER, SCREEN, MOVIE,
+   				RESERV_NUM, PRICE, RESERV_DATE, SEAT_NUMBER, SHOW_DATE, MEMBER_SEQ)
+		VALUES
+				(#{theater}, #{screen}, #{movie},
+				#{reservNum}, 5000, NOW(), #{seatNumber}, #{showDate}, #{memberSeq});
+	</insert>
 
 </mapper>

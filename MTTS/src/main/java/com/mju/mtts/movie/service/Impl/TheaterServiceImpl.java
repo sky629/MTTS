@@ -21,4 +21,12 @@ public class TheaterServiceImpl implements TheaterService {
 		return theaterDao.selectAll(movieSeq);
 	}
 
+	@Override
+	public Theater getTheaterInfo(String theaterSeq) {
+		// TODO Auto-generated method stub
+		Theater param = new Theater();
+		param.setTheaterSeq(theaterSeq);
+		return theaterDao.selectTheater(param);
+	}
+
 }

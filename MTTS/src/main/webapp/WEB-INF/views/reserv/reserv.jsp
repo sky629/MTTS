@@ -51,12 +51,10 @@
 $(function(){
 	//  리스트 가져오기
 	var url="<%=cp%>/reserv/movieList.action";
-	var params="movieSeq=";
 	
 	$.ajax({
 		type:"post"		// 포스트방식
 		,url:url		// url 주소
-		,data:params	//  요청에 전달되는 프로퍼티를 가진 객체
 		,dataType:"json"
 		,success:function(args){	//응답이 성공 상태 코드를 반환하면 호출되는 함수
 			 for(var idx=0; idx<args.data.length; idx++) {
@@ -165,22 +163,20 @@ function seatList() {
 	    }
 	});
 }
-
-
- //확인 버튼을 누르면 실행될 함수
 function result() {	
 	var movieSeq=$("#movieSelect").val();
-	var theaterSeq=$("theaterSelect").val();
+	var theaterSeq=$("#theaterSelect").val();
 	var showDate=$("#showDate").val();
 	var showTimeSeq=$("#showSelect").val();
-	var reservSeat=$("#seatSelect").val();
-	var memberSeq=1;
+	var selectSeat=$("#seatSelect").val();
+	var memberSeq=$("#memberSeq").val();
 	
-	if(movieSeq=="" || theaterSeq=="" || showDate=="" || showTimeSeq=="" || reservSeat=="")
+	if(movieSeq=="" || theaterSeq=="" || showDate=="" || showTimeSeq=="" || selectSeat=="")
 		return;
 	
+	var params;	
 	var url="<%=cp%>/reserv/reservEnd.action";
-	var params="movieSeq="+movieSeq+"&theaterSeq="+theaterSeq+"&showDate="+showDate+"&showTimeSeq="+showTimeSeq+"&reservSeat="reservSeat+"&memberSeq"+memberSeq;
+	params= "movieSeq="+movieSeq+"&theaterSeq="+theaterSeq+"&showDate="+showDate+"&showTimeSeq="+showTimeSeq+"&selectSeat="+selectSeat+"&memberSeq="+memberSeq;
 	
 	$.ajax({
 		type:"post"
@@ -188,33 +184,39 @@ function result() {
 		,data:params
 		,dataType:"json"
 		,success:function(args){
-			$("#reservEnd li").each(function() {	
+			 $("#reservEnd li").each(function() {	
 				$("#reservEnd li:eq(0)").remove();	
 			});
 			
-			 for(var idx=0; idx<args.data.length; idx++) {	
-				$("#reservEnd").append("<li>"+args.data[idx].movieName+"</li>");
-				$("#reservEnd").append("<li>"+args.data[idx].theaterName+"</li>");
-				$("#reservEnd").append("<li>"+args.data[idx].showDate+"</li>");
-				$("#reservEnd").append("<li>"+args.data[idx].showTime+"</li>");
-				$("#reservEnd").append("<li>"+args.data[idx].reservSeat+"</li>");
-				$("#reservEnd").append("<li>"+args.data[idx].reservSeat+"</li>");
-			 }
+			for(var idx=0; idx<args.data.length; idx++) {	
+				$("#reservEnd").append("<li> 영화관 : "+args.data[idx].theater+"</li>");
+				$("#reservEnd").append("<li> 상영관 : "+args.data[idx].screen+"</li>");
+				$("#reservEnd").append("<li> 영화 : "+args.data[idx].movie+"</li>");
+				$("#reservEnd").append("<li> 상영일시 : "+args.data[idx].showDate+"</li>");
+				$("#reservEnd").append("<li> 예약자수 : "+args.data[idx].reservNum+"</li>");
+				$("#reservEnd").append("<li> 가격 : "+args.data[idx].price+"</li>");
+				$("#reservEnd").append("<li> 예약한 일시 : "+args.data[idx].reservDate+"</li>");
+				$("#reservEnd").append("<li> 예약 좌석 : "+args.data[idx].seatNumber+"</li>");
+				
+			 } 
 		}
 	    ,error:function(e) {
 	    	alert(e.responseText);
 	    }
 	});
 	
-}
+} 
+
+
 </script>
+
 </head>
 <body>
 	<jsp:include page="../common/header.jsp"></jsp:include>
-	
 	<div id="wrap">
+	
 		<div class="reserv" id="left">
-		
+			<input id="memberSeq" value="1" type="hidden">
 			<div id="movie_select" class="reserv_menu">
 				<div class="reserv_nav">
 					<p class="reserv_nav_span">영화 선택</p>

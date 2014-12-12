@@ -13,7 +13,9 @@ import com.mju.mtts.vo.movie.Genre;
 import com.mju.mtts.vo.movie.Movie;
 import com.mju.mtts.vo.movie.Picture;
 import com.mju.mtts.vo.movie.Review;
+import com.mju.mtts.vo.movie.Screen;
 import com.mju.mtts.vo.movie.Staff;
+import com.mju.mtts.vo.movie.Theater;
 import com.mju.mtts.vo.movie.Video;
 
 @Service("MovieService")
@@ -157,4 +159,6 @@ public class MovieServiceImpl implements MovieService {
 		int flag = movieDao.updateReservCnt(movieSeq, state);
 		return flag > 0 ? true : false;
 	}
+
+	
 }

@@ -11,7 +11,8 @@ public class ReservInfo {
 	private String price;
 	private String reservDate;
 	private String membershipTON;
-	private String seatNumer;
+	private String seatNumber;
+	private String memberSeq;
 	
 	
 	public String getReservSeq() {
@@ -62,17 +63,23 @@ public class ReservInfo {
 	public void setReservDate(String reservDate) {
 		this.reservDate = reservDate;
 	}
-	public String getSeatNumer() {
-		return seatNumer;
-	}
-	public void setSeatNumer(String seatNumer) {
-		this.seatNumer = seatNumer;
-	}
 	public String getMembershipTON() {
 		return membershipTON;
 	}
 	public void setMembershipTON(String membershipTON) {
 		this.membershipTON = membershipTON;
+	}
+	public String getMemberSeq() {
+		return memberSeq;
+	}
+	public void setMemberSeq(String memberSeq) {
+		this.memberSeq = memberSeq;
+	}
+	public String getSeatNumber() {
+		return seatNumber;
+	}
+	public void setSeatNumber(String seatNumber) {
+		this.seatNumber = seatNumber;
 	}
 	
 	

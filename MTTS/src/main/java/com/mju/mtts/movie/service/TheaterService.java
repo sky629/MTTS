@@ -6,5 +6,7 @@ import com.mju.mtts.vo.movie.Theater;
 
 public interface TheaterService {
 	List<Theater> getTheaterAll(String movieSeq);
+	
+	Theater getTheaterInfo(String theaterSeq);
 
 }
