@@ -29,6 +29,8 @@
 		<typeAlias alias="review" type="com.mju.mtts.vo.movie.Review" />
 		<typeAlias alias="video" type="com.mju.mtts.vo.movie.Video" />
 		<typeAlias alias="fameLine" type="com.mju.mtts.vo.movie.FameLine" />
+		<typeAlias alias="reservInfo" type="com.mju.mtts.vo.movie.ReservInfo" />
+		
 
 	</typeAliases>
 

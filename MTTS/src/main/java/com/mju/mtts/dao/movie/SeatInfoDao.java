@@ -6,4 +6,5 @@ import com.mju.mtts.vo.movie.SeatInfo;
 
 public interface SeatInfoDao {
 	List<SeatInfo> selectAll(String showTimeSeq);
+	int reservSeat(String showTimeSeq, String seatNumber);
 }

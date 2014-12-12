@@ -31,4 +31,6 @@ public interface MovieDao {
 	List<Video> getMovieVideo(Movie param);
 
 	List<FameLine> getMovieFameLine(Movie param);
+	
+	int updateReservCnt(String movieSeq, String state);
 }

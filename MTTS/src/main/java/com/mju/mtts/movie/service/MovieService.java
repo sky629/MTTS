@@ -31,4 +31,6 @@ public interface MovieService {
 	List<Video> getMovieVideo(String movieSeq);
 
 	List<FameLine> getMovieFameLine(String movieSeq);
+	
+	boolean updateReservCnt(String movieSeq, String state);
 }

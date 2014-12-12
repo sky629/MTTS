@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mju.mtts.dao.movie.SeatInfoDao;
 import com.mju.mtts.dao.movie.TheaterDao;
@@ -22,4 +23,14 @@ public class SeatInfoServiceImpl implements SeatInfoService {
 		return seatInfoDao.selectAll(showTimeSeq);
 	}
 
+	@Override
+	public boolean setReservSeat(String showTimeSeq, String seatNumber) {
+		// TODO Auto-generated method stub
+		int flag = -1;
+		
+		flag = seatInfoDao.reservSeat(showTimeSeq, seatNumber);
+		
+		return flag > 0 ? true : false;
+	}
+	
 }

@@ -267,4 +267,18 @@
 				FROM	FAME_LINE
 				WHERE	MOVIE_SEQ = 1) a;
 	</select>
+	
+	<update id="updateReservCnt">
+		UPDATE
+			UPDATE MOVIE
+		SET
+		<if test="state == plus">
+			RESERV_COUNT = RESERV_COUNT + 1
+		</if>
+		<if test="state == minus">
+			RESERV_COUNT = RESERV_COUNT - 1
+		</if>
+		WHERE 
+			MOVIE_SEQ = #{0}
+	</update>
 </mapper>

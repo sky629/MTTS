@@ -150,4 +150,11 @@ public class MovieServiceImpl implements MovieService {
 		
 		return movieDao.getMovieFameLine(param);
 	}
+
+	@Override
+	public boolean updateReservCnt(String movieSeq, String state) {
+		// TODO Auto-generated method stub
+		int flag = movieDao.updateReservCnt(movieSeq, state);
+		return flag > 0 ? true : false;
+	}
 }

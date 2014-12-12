@@ -40,7 +40,7 @@
    showOn: "both", //엘리먼트와 이미지 동시 사용(both,button)
    yearRange: '1990:2020' //1990년부터 2020년까지
   };
-  $("#reservDate").datepicker(clareCalendar);
+  $("#showDate").datepicker(clareCalendar);
   $("#toDt").datepicker(clareCalendar);
   $("img.ui-datepicker-trigger").attr("style","margin-left:5px; vertical-align:middle; cursor:pointer;"); //이미지버튼 style적용
   $("#ui-datepicker-div").hide(); //자동으로 생성되는 div객체 숨김  
@@ -61,10 +61,6 @@ $(function(){
 		,success:function(args){	//응답이 성공 상태 코드를 반환하면 호출되는 함수
 			 for(var idx=0; idx<args.data.length; idx++) {
 				 $("#movieSelect").append("<option value='"+args.data[idx].movieSeq+"'>"+args.data[idx].title+"</option>");
-				 //id가 sido인 요소선택
-				 //append로 기존 셀렉터로 선택된 요소 다음에 다음내용이 들어감
-				 //<option value='0'>서울</option> 이런식으로 sido의 요소안에 자식으로 들어감
-   // args.data[idx] : args 는 function(args)의 인자. data는 controller.java에서 json객체에 넣어준 key(여기서는 list가 값이 된다). [idx]는 list의 몇번쨰 데이터를 가져올지 배열을 나타냄
 			 }
 		}
 	    ,error:function(e) {	// 이곳의 ajax에서 에러가 나면 얼럿창으로 에러 메시지 출력
@@ -117,11 +113,11 @@ function movieList() {
 function dateList() {
 	var movieSeq=$("#movieSelect").val();	
 	var theaterSeq=$("#theaterSelect").val();
-	var reservDate=$("#reservDate").val();
+	var showDate=$("#showDate").val();
 	
 	
 	var url="<%=cp%>/reserv/dateList.action";
-	var params="movieSeq="+movieSeq+"&theaterSeq="+theaterSeq+"&reservDate="+reservDate;
+	var params="movieSeq="+movieSeq+"&theaterSeq="+theaterSeq+"&showDate="+showDate;
 	
 	$.ajax({
 		type:"post"
@@ -161,7 +157,7 @@ function seatList() {
 			});
 			
 			 for(var idx=0; idx<args.data.length; idx++) {	
-				 $("#seatSelect").append("<option value='"+args.data[idx].seatNumber+"'>"+args.data[idx].seatNumber+"</option>");	
+				$("#seatSelect").append("<option value='"+args.data[idx].seatNumber+"'>"+args.data[idx].seatNumber+"</option>");	
 			 }
 		}
 	    ,error:function(e) {
@@ -171,19 +167,20 @@ function seatList() {
 }
 
 
-<%-- //확인 버튼을 누르면 실행될 함수
+ //확인 버튼을 누르면 실행될 함수
 function result() {	
 	var movieSeq=$("#movieSelect").val();
 	var theaterSeq=$("theaterSelect").val();
-	var reservDate=$("#reservDate").val();
+	var showDate=$("#showDate").val();
 	var showTimeSeq=$("#showSelect").val();
 	var reservSeat=$("#seatSelect").val();
+	var memberSeq=1;
 	
-	if(movieSeq=="" || theaterSeq=="" || reservDate=="" || showTimeSeq=="" || reservSeat=="")
+	if(movieSeq=="" || theaterSeq=="" || showDate=="" || showTimeSeq=="" || reservSeat=="")
 		return;
 	
 	var url="<%=cp%>/reserv/reservEnd.action";
-	var params="movieSeq="+movieSeq+"&theaterSeq="+theaterSeq+"&reservDate="+reservDate+"&showTimeSeq="+showTimeSeq+"&reservSeat="reservSeat;
+	var params="movieSeq="+movieSeq+"&theaterSeq="+theaterSeq+"&showDate="+showDate+"&showTimeSeq="+showTimeSeq+"&reservSeat="reservSeat+"&memberSeq"+memberSeq;
 	
 	$.ajax({
 		type:"post"
@@ -192,15 +189,16 @@ function result() {
 		,dataType:"json"
 		,success:function(args){
 			$("#reservEnd li").each(function() {	
-				$("#reservEnd li:eq(1)").remove();	
+				$("#reservEnd li:eq(0)").remove();	
 			});
 			
 			 for(var idx=0; idx<args.data.length; idx++) {	
-				 $("#reservEnd").append("<li>"+args.data[idx].movieName+"</li>");
-				 $("#reservEnd").append("<li>"+args.data[idx].theaterName+"</li>");
-				 $("#reservEnd").append("<li>"+args.data[idx].reservDate+"</li>");
-				 $("#reservEnd").append("<li>"+args.data[idx].showTime+"</li>");
-				 $("#reservEnd").append("<li>"+args.data[idx].reservSeat+"</li>");
+				$("#reservEnd").append("<li>"+args.data[idx].movieName+"</li>");
+				$("#reservEnd").append("<li>"+args.data[idx].theaterName+"</li>");
+				$("#reservEnd").append("<li>"+args.data[idx].showDate+"</li>");
+				$("#reservEnd").append("<li>"+args.data[idx].showTime+"</li>");
+				$("#reservEnd").append("<li>"+args.data[idx].reservSeat+"</li>");
+				$("#reservEnd").append("<li>"+args.data[idx].reservSeat+"</li>");
 			 }
 		}
 	    ,error:function(e) {
@@ -208,7 +206,7 @@ function result() {
 	    }
 	});
 	
-} --%>
+}
 </script>
 </head>
 <body>
@@ -249,7 +247,7 @@ function result() {
 				<table align="center">
 					<tr align="center">
 					<div id="dateSelect">
-						<input name='reservDate' type='text' id='reservDate' size='8' maxlength='8' title='예매일자' onchange="dateList();">
+						<input name='showDate' type='text' id='showDate' size='8' maxlength='8' title='예매일자' onchange="dateList();">
 					</div>
 					</tr>
 				</table>
@@ -291,7 +289,9 @@ function result() {
 					<p class="reserv_nav_span">예매 정보</p>
 				</div>
 				
+				<ul id="reservEnd">
 					
+				</ul>
 				
 				
 		</div>
