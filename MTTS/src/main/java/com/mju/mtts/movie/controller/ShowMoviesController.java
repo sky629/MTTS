@@ -139,7 +139,7 @@ public class ShowMoviesController {
 		boolean flag3 = movieService.updateReservCnt(movieSeq, "plus");
 		
 		if(flag == true && flag2 == true && flag3 == true){
-			List<ReservInfo> list=reservInfoService.getReservInfo(memberSeq);
+			List<ReservInfo> list=reservInfoService.getReservInfoOne(memberSeq);
 			JSONObject jso=new JSONObject();
 			jso.put("data", list);	
 			

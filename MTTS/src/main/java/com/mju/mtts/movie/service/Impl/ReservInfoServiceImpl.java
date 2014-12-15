@@ -20,6 +20,12 @@ public class ReservInfoServiceImpl implements ReservInfoService{
 		
 		return reservInfoDao.selectReservInfo(memberSeq);
 	}
+	
+	@Override
+	public List<ReservInfo> getReservInfoOne(String memberSeq) {
+		
+		return reservInfoDao.selectReservInfoOne(memberSeq);
+	}
 
 	@Override
 	public boolean setReservInfo(String theater, String screen,
@@ -37,5 +43,7 @@ public class ReservInfoServiceImpl implements ReservInfoService{
 		
 		return flag >0 ? true : false;
 	}
+
+	
 
 }

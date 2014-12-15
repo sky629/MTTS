@@ -8,6 +8,7 @@
 		,		THEATER as 'theater'
 		,   	SCREEN as 'screen'
 		,   	MOVIE as 'movie'
+		,		SHOW_DATE as 'showDate'
 		,   	RESERV_NUM as 'reservNum'
 		,   	PRICE as 'price'
 		,   	RESERV_DATE as 'reservDate'
@@ -18,7 +19,31 @@
 		FROM 
 				admin.RESERV_INFO
 		WHERE
-				MEMBER_SEQ = #{0};
+				MEMBER_SEQ = #{0}
+		ODRER BY 
+				RESERV_SEQ DESC
+	</select>
+	
+		<select id="selectReservInfoOne" resultType="reservInfo">
+		SELECT
+		      	RESERV_SEQ as 'reservSeq'
+		,		THEATER as 'theater'
+		,   	SCREEN as 'screen'
+		,   	MOVIE as 'movie'
+		,		SHOW_DATE as 'showDate'
+		,   	RESERV_NUM as 'reservNum'
+		,   	PRICE as 'price'
+		,   	RESERV_DATE as 'reservDate'
+		,   	MEMBERSHIP_TON as 'membershipTON'
+		,   	SEAT_NUMBER as 'seatNumber'
+		,   	MEMBER_SEQ as 'memberSeq'
+		
+		FROM 
+				admin.RESERV_INFO
+		WHERE
+				MEMBER_SEQ = #{0}
+		ORDER BY 
+				RESERV_SEQ DESC LIMIT 0, 1
 	</select>
 
 	<insert id="insertReservInfo">
