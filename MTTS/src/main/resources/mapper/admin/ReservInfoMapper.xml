@@ -3,24 +3,46 @@
 <mapper namespace="com.mju.mtts.dao.movie.ReservInfoDao">
 
 	<select id="selectReservInfo" resultType="reservInfo">
-		SELECT
-		      	RESERV_SEQ as 'reservSeq'
+		SELECT       	
+				RESERV_SEQ as 'reservSeq'
 		,		THEATER as 'theater'
 		,   	SCREEN as 'screen'
 		,   	MOVIE as 'movie'
-		,		SHOW_DATE as 'showDate'
 		,   	RESERV_NUM as 'reservNum'
 		,   	PRICE as 'price'
 		,   	RESERV_DATE as 'reservDate'
 		,   	MEMBERSHIP_TON as 'membershipTON'
 		,   	SEAT_NUMBER as 'seatNumber'
 		,   	MEMBER_SEQ as 'memberSeq'
-		
+		,		NAME as 'memberName'
+		,		SHOW_DATE as 'showDate'
+		,		MOVIE_SEQ as 'movieSeq'
+		,		PICTURE_URL as 'moviePosterURL'
 		FROM 
-				admin.RESERV_INFO
-		WHERE
-				MEMBER_SEQ = #{0}
-		ODRER BY 
+				(SELECT * 
+				FROM MOVIE_PICTURE 
+				WHERE PICTURE_CODE = 1) L
+		NATURAL JOIN
+				(SELECT 
+				      	RESERV_SEQ
+				,		THEATER
+				,   	SCREEN
+				,   	MOVIE
+				,   	RESERV_NUM
+				,   	PRICE
+				,   	RESERV_DATE
+				,   	MEMBERSHIP_TON
+				,   	SEAT_NUMBER
+				,   	MEMBER_SEQ
+				,		NAME
+				,		SHOW_DATE
+				,		MOVIE_SEQ
+				
+				FROM 
+						admin.RESERV_INFO NATURAL JOIN admin.MEMBER
+				WHERE
+						MEMBER_SEQ = 1) R
+		ORDER BY 
 				RESERV_SEQ DESC
 	</select>
 	
@@ -50,10 +72,10 @@
 		INSERT 	
 				INTO RESERV_INFO (
   				THEATER, SCREEN, MOVIE,
-   				RESERV_NUM, PRICE, RESERV_DATE, SEAT_NUMBER, SHOW_DATE, MEMBER_SEQ)
+   				RESERV_NUM, PRICE, RESERV_DATE, SEAT_NUMBER, SHOW_DATE, MEMBER_SEQ, MOVIE_SEQ, THEATER_SEQ, SCREEN_SEQ)
 		VALUES
 				(#{theater}, #{screen}, #{movie},
-				#{reservNum}, 5000, NOW(), #{seatNumber}, #{showDate}, #{memberSeq});
+				#{reservNum}, 5000, NOW(), #{seatNumber}, #{showDate}, #{memberSeq}, 1, 22, 1);
 	</insert>
 
 </mapper>

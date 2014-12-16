@@ -39,7 +39,7 @@ public class ShowMoviesController {
 	private TheaterService theaterServie;
 	
 	@Autowired
-	private MovieTimeService MovieTimeService;
+	private MovieTimeService movieTimeService;
 	
 	@Autowired
 	private SeatInfoService seatInfoService;
@@ -96,7 +96,7 @@ public class ShowMoviesController {
 	
 	@RequestMapping(value="/reserv/dateList", method=RequestMethod.POST)
 	public void theaterList(HttpServletResponse resp, String movieSeq, String theaterSeq, String showDate) throws Exception {
-		List<MovieTime> list=MovieTimeService.getMovieTimeAll(theaterSeq, movieSeq, showDate);
+		List<MovieTime> list=movieTimeService.getMovieTimeAll(theaterSeq, movieSeq, showDate);
 		JSONObject jso=new JSONObject();
 		jso.put("data", list);
 		
@@ -126,15 +126,19 @@ public class ShowMoviesController {
 	@Transactional
 	public void reservEnd(HttpServletResponse resp, String movieSeq, String theaterSeq, String showDate, String showTimeSeq, String selectSeat, String memberSeq) throws Exception {
 		System.out.println(movieSeq + " " + theaterSeq + " " + showDate + " " + showTimeSeq + " " + selectSeat + " " + memberSeq);
-		String currentScreenSeq = MovieTimeService.getMovieTimeAll(theaterSeq, movieSeq, showDate).get(0).getScreenSeq();
+		String currentScreenSeq = movieTimeService.getMovieTimeAll(theaterSeq, movieSeq, showDate).get(0).getScreenSeq();
 		//스크린의 이름과 타입 붙이기
 		String screen = screenService.getScreenInfo(theaterSeq, currentScreenSeq).getScreenName() + " / " +
 				screenService.getScreenInfo(theaterSeq, currentScreenSeq).getScreenType();
+		
+		//showTimeSeq를 이용해서 showtime을 뽑고 
+		String showDateTime = showDate + " " + movieTimeService.getMovieTime(showTimeSeq).getShowTime();
+		
 		//좌석 예약
 		boolean flag = seatInfoService.setReservSeat(showTimeSeq, selectSeat);
 		//예매정보 입력
 		boolean flag2 = reservInfoService.setReservInfo(theaterServie.getTheaterInfo(theaterSeq).getTheaterName(),
-				screen, movieService.getMovie(movieSeq).getTitle(), "1", selectSeat, showDate, memberSeq);
+				screen, movieService.getMovie(movieSeq).getTitle(), "1", selectSeat, showDateTime, memberSeq);
 		//영화에 예매수 업데이트
 		boolean flag3 = movieService.updateReservCnt(movieSeq, "plus");
 		
@@ -158,5 +162,16 @@ public class ShowMoviesController {
 		}
 	}
 			
-
+	@RequestMapping("/reserv/reservInfo.do")
+	public String reservInfo(
+			HttpServletRequest request,
+			HttpServletResponse response,
+			ModelMap model,
+			@RequestParam(value = "memberSeq", required = false) String memberSeq){
+		
+		model.addAttribute("reservInfo", reservInfoService.getReservInfo(memberSeq)) ;
+		
+		
+		return "reserv/reservInfo";
+	}
 }

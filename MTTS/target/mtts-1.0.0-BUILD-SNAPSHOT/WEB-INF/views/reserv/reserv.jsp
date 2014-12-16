@@ -170,7 +170,6 @@ function result() {
 	var showTimeSeq=$("#showSelect").val();
 	var selectSeat=$("#seatSelect").val();
 	var memberSeq=$("#memberSeq").val();
-	alert(movieSeq + " " + theaterSeq + " " + showDate + " " + showTimeSeq + " " + selectSeat + " " + memberSeq);
 	
 	if(movieSeq=="" || theaterSeq=="" || showDate=="" || showTimeSeq=="" || selectSeat=="")
 		return;
@@ -197,7 +196,7 @@ function result() {
 				$("#reservEnd").append("<li> 예약자수 : "+args.data[idx].reservNum+"</li>");
 				$("#reservEnd").append("<li> 가격 : "+args.data[idx].price+"</li>");
 				$("#reservEnd").append("<li> 예약한 일시 : "+args.data[idx].reservDate+"</li>");
-				$("#reservEnd").append("<li> 예약 좌석 : "+args.data[idx].reservSeat+"</li>");
+				$("#reservEnd").append("<li> 예약 좌석 : "+args.data[idx].seatNumber+"</li>");
 				
 			 } 
 		}

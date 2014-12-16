@@ -13,6 +13,8 @@ public class ReservInfo {
 	private String membershipTON;
 	private String seatNumber;
 	private String memberSeq;
+	private String memberName;
+	private String moviePosterURL;
 	
 	
 	public String getReservSeq() {
@@ -80,6 +82,18 @@ public class ReservInfo {
 	}
 	public void setSeatNumber(String seatNumber) {
 		this.seatNumber = seatNumber;
+	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+	public String getMoviePosterURL() {
+		return moviePosterURL;
+	}
+	public void setMoviePosterURL(String moviePosterURL) {
+		this.moviePosterURL = moviePosterURL;
 	}
 	
 	

@@ -14,4 +14,15 @@
 			t.THEATER_SEQ = s.THEATER_SEQ	AND
             s.MOVIE_SEQ = #{movieSeq};
 	</select>
+	
+	<select id="selectTheater" resultType="theater">
+		SELECT 
+				THEATER_SEQ as 'theaterSeq'
+		,		THEATER_NAME as 'theaterName'
+		
+		FROM
+				admin.THEATER
+		WHERE
+				THEATER_SEQ = #{theaterSeq}
+	</select>
 </mapper>

@@ -41,4 +41,17 @@
 				t.SHOWDATE = #{2}
 		
 	</select>
+	
+	<select id="selectShowTime" resultType="movieTime">
+		SELECT
+				SHOWTIME_SEQ as 'showTimeSeq'
+			,	THEATER_SEQ as 'theaterSeq'
+			,	SCREEN_SEQ as 'screenSeq'
+			,	SHOWDATE as 'showDate'
+			,	SHOWTIME as 'showTime'
+			,	MOVIE_SEQ as 'movieSeq'
+		
+		FROM admin.SHOWTIMETABLE
+		WHERE SHOWTIME_SEQ = #{showTimeSeq}
+	</select>
 </mapper>

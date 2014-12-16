@@ -29,4 +29,10 @@ public class MovieTimeServiceImpl implements MovieTimeService {
 		return movieTimeDao.selectScreenAll(theaterSeq, movieSeq, showDate);
 	}
 
+	@Override
+	public MovieTime getMovieTime(String showTimeSeq) {
+		// TODO Auto-generated method stub
+		return movieTimeDao.selectShowTime(showTimeSeq);
+	}
+
 }
